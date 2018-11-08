@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.e4.ui.css.swt.theme">
+		<theme basestylesheeturi="css/default.css" id="org.eclipse.e4.ui.css.theme.e4_default"
+			label="Default Theme">
+		</theme>
+	</extension>
+
+   <extension
+         id="eclipse-repository"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.rebecalang.afra.ideplugin.Application"
+            name="Afra Product">
+      </product>
+   </extension>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.rebecalang.afra.ideplugin.Application">
+         </run>
+      </application>
+   </extension>
+
+	<extension id="product" point="org.eclipse.core.runtime.products">
+	  <product application="org.rebecalang.afra.ideplugin.application" name="Afra">
+	    <property name="appName" value="Afra"> </property>
+	    <property name="applicationXMI" value="org.rebecalang.afra.ideplugin/Application.e4xmi"> </property>
+	    <property
+	          name="startupProgressRect"
+	          value="5,275,445,15">
+	    </property>
+	    <property
+	          name="startupForegroundColor"
+	          value="FFFFFF">
+	    </property>
+	    <property
+	          name="startupMessageRect"
+	          value="7,252,445,20">
+	    </property>
+     <property
+           name="preferenceCustomization"
+           value="plugin_customization.ini">
+     </property>
+	  </product>
+	</extension>
+
+   
+	<extension
+	      point="org.eclipse.ui.newWizards">
+	   <category
+	         id="org.rebecalang.afra.ideplugin.rebecacategory"
+	         name="Rebeca">
+	   </category>
+	   <wizard
+	         category="org.rebecalang.afra.ideplugin.rebecacategory"
+	         class="org.rebecalang.afra.ideplugin.wizard.newproject.NewProjectWizard"
+	         icon="icons/R.png"
+	         id="org.rebecalang.afra.ideplugin.rebecaprojectwizard"
+	         name="Rebeca Project" project="true">
+	   </wizard>
+	</extension>
+	
+	<extension
+	      point="org.eclipse.ui.navigator.viewer">
+	   <viewerActionBinding
+	         viewerId="org.rebecalang.afra.ideplugin.navigator">
+	      <includes>
+	         <actionExtension
+	               pattern="org.eclipse.ui.navigator.resources.*">
+	         </actionExtension>
+	      </includes>
+	   </viewerActionBinding>
+	   <viewerContentBinding
+	         viewerId="org.rebecalang.afra.ideplugin.navigator">
+	      <includes>
+	         <contentExtension
+	               pattern="org.eclipse.ui.navigator.resourceContent">
+	         </contentExtension>
+	         <contentExtension
+	               pattern="org.eclipse.ui.navigator.resources.filters.*">
+	         </contentExtension>
+	         <contentExtension
+	               pattern="org.eclipse.ui.navigator.resources.linkHelper">
+	         </contentExtension>
+	         <contentExtension
+	               pattern="org.eclipse.ui.navigator.resources.workingSets">
+	         </contentExtension>
+	      </includes>
+	   </viewerContentBinding>
+	</extension>
+
+	<extension
+	      point="org.eclipse.ui.editors">
+	   <editor
+	         class="org.rebecalang.afra.ideplugin.editors.rebeca.RebecaEditor"
+	         contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+	         extensions="rebeca"
+	         icon="icons/rebeca-file-logo.gif"
+	         id="org.rebecalang.afra.ideplugin.RebecaEditor"
+	         name="Rebeca Editor">
+	   </editor>
+	   <editor
+	         class="org.rebecalang.afra.ideplugin.editors.rebecaprop.RebecaPropEditor"
+	         contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+	         extensions="property"
+	         icon="icons/property-file-logo.gif"
+	         id="org.rebecalang.afra.ideplugin.RebecaPropEditor"
+	         name="Rebeca Prop Editor">
+	   </editor>
+	</extension>
+	
+	<extension
+	      point="org.eclipse.ui.editors.documentProviders">
+	   <provider
+	         class="org.rebecalang.afra.ideplugin.editors.rebeca.RebecaDocumentProvider"
+	         extensions=".rebeca"
+	         id="org.rebecalang.afra.ideplugin.editors.rebeca.RebecaDocumentProvider">
+	   </provider>
+	   <provider
+	         class="org.rebecalang.afra.ideplugin.editors.rebecaprop.RebecaPropDocumentProvider"
+	         extensions=".property"
+	         id="org.rebecalang.afra.ideplugin.editors.rebecaprop.RebecaPropDocumentProvider">
+	   </provider>
+	</extension>
+	
+	<extension
+	      point="org.eclipse.ui.preferencePages">
+	   <page
+	         class="org.rebecalang.afra.ideplugin.editors.preference.ColorPreferencePage"
+	         id="org.rebecalang.afra.ideplugin.editor.rebeca"
+	         name="Rebeca Editor">
+	   </page>
+	   <page
+	         class="org.rebecalang.afra.ideplugin.editors.preference.RebecaPropPreferencePage"
+	         id="org.rebecalang.afra.ideplugin.editor.rebecaprop"
+	         name="Rebeca Property Editor">
+	   </page>
+	</extension>
+
+	<extension
+	      point="org.eclipse.core.runtime.preferences">
+	   <initializer
+	         class="org.rebecalang.afra.ideplugin.editors.rebeca.RebecaPreferenceInitializer">
+	   </initializer>
+	   <initializer
+	         class="org.rebecalang.afra.ideplugin.editors.rebecaprop.RebecaPropPreferenceInitializer">
+	   </initializer>
+	</extension>
+
+	<extension
+	      point="org.eclipse.ui.propertyPages">
+	   <page
+	         class="org.rebecalang.afra.ideplugin.preference.CoreRebecaProjectPropertyPage"
+	         id="org.rebecalang.afra.ideplugin.corerebecapropertypage"
+	         name="Rebeca Project Details">
+	      <enabledWhen>
+	         <and>
+	            <not>
+			         <test
+			               property="org.eclipse.core.resources.projectNature"
+			               value="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature">
+			         </test>
+	            </not>
+		        <test
+		              property="org.eclipse.core.resources.projectNature"
+		              value="org.rebecalang.afra.ideplugin.nature.RebecaNature">
+		        </test>
+	         </and>
+	      </enabledWhen>
+	   </page>
+	   <page
+	         class="org.rebecalang.afra.ideplugin.preference.TimedRebecaProjectPropertyPage"
+	         id="org.rebecalang.afra.ideplugin.timedrebecapropertypage"
+	         name="Timed Rebeca Project Details">
+	      <enabledWhen>
+	         <test
+	               property="org.eclipse.core.resources.projectNature"
+	               value="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature">
+	         </test>
+	      </enabledWhen>
+	   </page>
+	</extension>
+	
+<extension point="org.eclipse.core.expressions.definitions">
+   <definition
+         id="org.rebecalang.afra.ideplugin.hasTimedRebecaNature">
+      <adapt
+            type="org.eclipse.core.resources.IProject">
+         <test
+               property="org.eclipse.core.resources.projectNature"
+               value="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature">
+         </test>
+      </adapt>
+   </definition>
+   <definition
+         id="org.rebecalang.afra.ideplugin.hasCoreRebecaNature">
+      <adapt
+            type="org.eclipse.core.resources.IProject">
+         <test
+               property="org.eclipse.core.resources.projectNature"
+               value="org.rebecalang.afra.ideplugin.nature.RebecaNature">
+         </test>
+      </adapt>
+   </definition>
+   <definition
+         id="org.rebecalang.afra.ideplugin.analyzableFile">
+    <iterate>
+      <adapt
+            type="org.eclipse.core.resources.IResource">
+         <test
+               property="rg.eclipse.core.resources.name"
+               value="*.rebeca">
+         </test>
+      </adapt>
+    </iterate>
+   </definition>
+</extension>
+<extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            icon="icons/rebeca.gif"
+            id="org.eclipse.pde.ui.ProjectDecorator"
+            label="%decorator.label"
+            objectClass="org.eclipse.core.resources.IFolder">
+      </decorator>
+ </extension>
+
+
+	<extension
+	      id="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature"
+	      name="Timed Rebeca Nature"
+	      point="org.eclipse.core.resources.natures">
+	   <runtime>
+	      <run
+	            class="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature">
+	      </run>
+	   </runtime>
+	</extension>
+	<extension
+	      point="org.eclipse.ui.ide.projectNatureImages">
+	   <image
+	         icon="icons/timer.png"
+	         id="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature.image"
+	         natureId="org.rebecalang.afra.ideplugin.nature.TimedRebecaNature">
+	   </image>
+	</extension>
+	<extension
+	      id="org.rebecalang.afra.ideplugin.nature.RebecaNature"
+	      name="Rebeca Nature"
+	      point="org.eclipse.core.resources.natures">
+	   <runtime>
+	      <run
+	            class="org.rebecalang.afra.ideplugin.nature.RebecaNature">
+	      </run>
+	   </runtime>
+	</extension>
+	<extension
+	      point="org.eclipse.ui.ide.projectNatureImages">
+	   <image
+	         icon="icons/rebeca.png"
+	         id="org.rebecalang.afra.ideplugin.nature.RebecaNature.image"
+	         natureId="org.rebecalang.afra.ideplugin.nature.RebecaNature">
+	   </image>
+	</extension>
+
+
+ </plugin>

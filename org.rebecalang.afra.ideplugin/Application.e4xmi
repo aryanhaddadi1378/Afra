@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_VnmacNSzEeGBn6dQ9VPexA" elementId="org.rebecalang.ide.afra.application" bindingContexts="_VnmacdSzEeGBn6dQ9VPexA">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_Vnmah9SzEeGBn6dQ9VPexA" label="My Main Window" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/logo.png" x="400" y="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Vnmaj9SzEeGBn6dQ9VPexA">
+      <children xsi:type="advanced:Perspective" xmi:id="_jM0GoPqFEea7gt_Qq78G6Q" elementId="org.rebecalang.afra.ideplugin.perspective" selectedElement="_nRrDMPqFEea7gt_Qq78G6Q" label="My Perspective" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/logo.png">
+        <tags>Perspective</tags>
+        <tags>categoryTag:General</tags>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_nRrDMPqFEea7gt_Qq78G6Q" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_nRrDMfqFEea7gt_Qq78G6Q" containerData="3400">
+            <tags>newtablook</tags>
+            <tags>org.eclipse.e4.primaryNavigationStack</tags>
+            <children xsi:type="advanced:Placeholder" xmi:id="_nRrDMvqFEea7gt_Qq78G6Q" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_sS7Q8NS1EeGBn6dQ9VPexA"/>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_nRrDM_qFEea7gt_Qq78G6Q" elementId="" containerData="10000">
+            <children xsi:type="advanced:Placeholder" xmi:id="_nRrDNPqFEea7gt_Qq78G6Q" elementId="org.eclipse.ui.editorss" ref="_Hmg4kNSjEeGwXp2p959l3w"/>
+            <children xsi:type="basic:PartStack" xmi:id="_nRrDNfqFEea7gt_Qq78G6Q" elementId="org.eclipse.ui.views.PropertySheetMStack" containerData="3400" selectedElement="_nRrDN_qFEea7gt_Qq78G6Q">
+              <tags>newtablook</tags>
+              <tags>org.eclipse.e4.secondaryDataStack</tags>
+              <children xsi:type="advanced:Placeholder" xmi:id="_nRrDNvqFEea7gt_Qq78G6Q" elementId="org.rebecalang.afra.ideplugin.placeholder.problems" ref="_JC73UPeeEeaaz6i3UWiK7g"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_nRrDN_qFEea7gt_Qq78G6Q" elementId="org.rebecalang.afra.ideplugin.placeholder.analysisresult" ref="_WqRGcNS1EeGBn6dQ9VPexA"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_nRrDOPqFEea7gt_Qq78G6Q" elementId="org.rebecalang.afra.ideplugin.placeholder.console" ref="_LoTcYPYEEeaaz6i3UWiK7g"/>
+            </children>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_vhiBQAWhEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.partstack.0">
+            <children xsi:type="basic:CompositePart" xmi:id="_xGInkAWhEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.compositepart.counterexample" label="Counter Example">
+              <children xsi:type="advanced:Placeholder" xmi:id="_d5w4YAToEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.placeholder.counterexample" ref="_DN-x8APaEeeKO5X4TFBPmw"/>
+              <children xsi:type="advanced:Placeholder" xmi:id="_uT4G4AWXEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.placeholder.stateincounterexample" ref="_rNaj4AWlEeeKO5X4TFBPmw"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_UDOvEDFPEeW8_OL1N7_G8g" elementId="org.rebecalang.ide.afra.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_TqPHgMjMEeigoNKkiQ9rZw" elementId="file" label="&amp;File">
+        <children xsi:type="menu:Menu" xmi:id="_TqPHgsjMEeigoNKkiQ9rZw" elementId="new" label="&amp;New">
+          <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHg8jMEeigoNKkiQ9rZw" elementId="new"/>
+          <children xsi:type="menu:DirectMenuItem" xmi:id="_TqPHhMjMEeigoNKkiQ9rZw">
+            <tags>Opaque</tags>
+          </children>
+          <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHhcjMEeigoNKkiQ9rZw" elementId="additions"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHh8jMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.ui.importer.openDirectory.menu" iconURI="platform:/plugin/org.eclipse.ui.ide/$nl$/icons/full/etool16/importdir_wiz.png" mnemonics="j">
+          <persistedState key="IIdentifier" value="org.eclipse.ui.ide/org.eclipse.e4.ui.importer.openDirectory.menu"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHiMjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_xybYMMjOEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.close" label="Close" command="_9QDj4N3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Au1tIMjPEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.closeall" label="Close All" command="_Vm4aQN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHi8jMEeigoNKkiQ9rZw" elementId="close.ext" visible="false">
+          <tags>org.eclipse.jface.action.GroupMarker.GroupMarker(String)</tags>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHjMjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_zDLHAMjREeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.save" label="Save" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/save_edit.png" command="_pRNP0N3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_p949gMjREeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.saveas" label="Save As..." iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/saveas_edit.png" command="_IFt7UN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hWmXkMjREeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.saveall" label="Save All" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/saveall_edit.png" command="_jWvAAN3dEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHkMjMEeigoNKkiQ9rZw" elementId="revert" visible="false" label="Rever&amp;t"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHkcjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHksjMEeigoNKkiQ9rZw" elementId="move" visible="false" label="Mo&amp;ve..." command="_0njH4N3aEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHk8jMEeigoNKkiQ9rZw" elementId="rename" label="Rena&amp;me..." iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/editor_area.png" command="_BCzHoN3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHlMjMEeigoNKkiQ9rZw" elementId="refresh" label="Re&amp;fresh" iconURI="platform:/plugin/org.eclipse.ui/$nl$/icons/full/elcl16/refresh_nav.png" command="_e6-b0N3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHlsjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHl8jMEeigoNKkiQ9rZw" elementId="print" label="&amp;Print..." iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" command="_fi2pQN3eEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHmcjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_LZ2o4MjQEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.import" label="Import" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/import_wiz.png" command="_fDxA4N3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_P4sywMjQEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.export" label="Export" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/export_wiz.png" command="_ZQ1jgN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHoMjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHocjMEeigoNKkiQ9rZw" elementId="properties" label="P&amp;roperties" command="_dUbC0N3eEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TqPHpMjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_bsJoIMjPEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.switchworkspace" label="Switch Workspace" command="_UrmdwN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TqPHpsjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.file.restartWorkbench" label="Restart" command="_b3N6cN3dEeigKd7AdtrYlw">
+          <persistedState key="IIdentifier" value="org.eclipse.ui.ide.application/org.eclipse.ui.file.restartWorkbench"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_Tr57cMjMEeigoNKkiQ9rZw" elementId="edit" label="&amp;Edit">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_WO5N4MjSEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.undo" label="Undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" command="_SuuhYN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Z_S9YMjSEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.redo" label="Redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" command="_7Mi0AN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tr57dcjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57dsjMEeigoNKkiQ9rZw" elementId="cut" label="Cu&amp;t" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/cut_edit.png" command="_WpDB4N3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57d8jMEeigoNKkiQ9rZw" elementId="copy" label="&amp;Copy" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/copy_edit.png" command="_K_vnAN3dEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57eMjMEeigoNKkiQ9rZw" elementId="paste" label="&amp;Paste" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/paste_edit.png" command="_-xpkYN3aEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tr57esjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57e8jMEeigoNKkiQ9rZw" elementId="delete" label="&amp;Delete" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/delete_edit.png" command="_U9etYN3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57fMjMEeigoNKkiQ9rZw" elementId="selectAll" label="Select &amp;All" command="_zs-rIN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57gMjMEeigoNKkiQ9rZw" elementId="find" label="&amp;Find/Replace..." command="_QYb04N3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tr57gsjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57g8jMEeigoNKkiQ9rZw" elementId="bookmark" label="Add Bookmar&amp;k..."/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tr57hMjMEeigoNKkiQ9rZw" elementId="addTask" label="Add Ta&amp;sk..."/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_Tu-dkMjMEeigoNKkiQ9rZw" elementId="navigate" label="&amp;Navigate">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Ojx_gMjWEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.gointo" label="Go Into" command="_6ajoUN3aEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tu-dp8jMEeigoNKkiQ9rZw" elementId="open.ext" visible="false"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tu-dqMjMEeigoNKkiQ9rZw" elementId="org.eclipse.jdt.debug.ui.command.OpenFromClipboard" visible="false" label="Open from Clipboar&amp;d" tooltip="Opens a Java element or Java Stack Trace from Clipboard">
+          <persistedState key="HelpContextId" value="org.eclipse.jdt.debug.ui.open_from_clipboard_action_context"/>
+          <persistedState key="IIdentifier" value="org.eclipse.jdt.debug.ui/org.eclipse.jdt.debug.ui.command.OpenFromClipboard"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tu-drsjMEeigoNKkiQ9rZw" elementId="org.eclipse.pde.ui.openPluginArtifactSeparator"/>
+        <children xsi:type="menu:Menu" xmi:id="_Tu-duMjMEeigoNKkiQ9rZw" elementId="showIn" label="Sho&amp;w In">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_qpGWUMjUEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.systemexplorer" label="System Explorer" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/obj16/goto_input.png" command="_lQ0jkN3cEeigKd7AdtrYlw"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tu-dtsjMEeigoNKkiQ9rZw" elementId="open.ext4"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_sXpYQMjTEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.next" label="Next" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/next_nav.png" command="_0WhvsN3iEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_33dDcMjTEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.previous" label="Previous" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/prev_nav.png" command="_ACPpkN3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tu-dt8jMEeigoNKkiQ9rZw" elementId="show.ext" visible="false"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_WmHloMjTEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.lasteditlocation" visible="false" label="Last Edit Location" iconURI="platform:/plugin/org.eclipse.ui.editors/icons/full/etool16/last_edit_pos.png"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tu-dv8jMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_M2CLoMjTEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.backward" label="Back" iconURI="platform:/plugin/org.eclipse.ui/icons/full/elcl16/backward_nav.png" command="_ojyloN3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ETPEIMjTEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.forward" label="Forward" iconURI="platform:/plugin/org.eclipse.ui/icons/full/elcl16/forward_nav.png" command="_Dr-B8N3eEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tu-dxMjMEeigoNKkiQ9rZw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_TwncUMjMEeigoNKkiQ9rZw" elementId="project" label="&amp;Project">
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TwncUcjMEeigoNKkiQ9rZw" elementId="projStart"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TwncUsjMEeigoNKkiQ9rZw" elementId="openProject" label="Op&amp;en Project" command="_bJnYIN3eEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_TwncU8jMEeigoNKkiQ9rZw" elementId="closeProject" label="Clo&amp;se Project" command="_6hQl4N3dEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_TwncVcjMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_v26-sMjXEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.properties" label="Properties" command="_dUbC0N3eEeigKd7AdtrYlw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_GFLCMMjbEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.menu.window" label="&amp;Window">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A4MjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.cocoa.minimizeWindow" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" label="Minimize" command="_RptkoN3dEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A4sjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.cocoa.fullscreenWindow" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" label="Toggle Full Screen" command="_cLyLgN35EeihTZWqRjZ_Iw"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_Tz6A48jMEeigoNKkiQ9rZw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_A2jTIMjZEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledmenuitem.newwindow" label="New Window" command="_8RvSwN3iEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:Menu" xmi:id="_1ODUEMjaEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.menu.editor" label="&amp;Editor">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A5sjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.splitEditor" label="Toggle Split Editor (Horizontal)" iconURI="platform:/plugin/org.eclipse.ui.ide.application/icons/full/elcl16/split_horizontal.png" mnemonics="H" command="_KPDmYN3cEeigKd7AdtrYlw">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide.application/org.eclipse.ui.window.splitEditor"/>
+            <parameters xmi:id="_Tz6A58jMEeigoNKkiQ9rZw" name="Splitter.isHorizontal" value="true"/>
+          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A6MjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.splitEditor" label="Toggle Split Editor (Vertical)" iconURI="platform:/plugin/org.eclipse.ui.ide.application/icons/full/elcl16/split_vertical.png" mnemonics="V" command="_KPDmYN3cEeigKd7AdtrYlw">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide.application/org.eclipse.ui.window.splitEditor"/>
+            <parameters xmi:id="_Tz6A6cjMEeigoNKkiQ9rZw" name="Splitter.isHorizontal" value="false"/>
+          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A6sjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.newEditor" visible="false" label="Clone" enabled="false" mnemonics="e">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide.application/org.eclipse.ui.window.newEditor"/>
+          </children>
+        </children>
+        <children xsi:type="menu:Menu" xmi:id="_Bk8_UMjbEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.menu.appearance" label="Appe&amp;arance">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A9MjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.ToggleCoolbarAction" label="Hide &amp;Toolbar" tooltip="Toggle coolbar visibility" enabled="false">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide/org.eclipse.ui.ToggleCoolbarAction"/>
+          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A9cjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.togglestatusbar" label="Hide &amp;Status Bar" tooltip="Toggle the visibility of the status bar on the bottom" enabled="false">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide/org.eclipse.ui.window.togglestatusbar"/>
+          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A9sjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.fullscreenmode" label="Toggle Full Screen" enabled="false">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide/org.eclipse.ui.window.fullscreenmode"/>
+          </children>
+          <children xsi:type="menu:MenuSeparator" xmi:id="_Tz6A98jMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.appearance.separator1"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6BBMjMEeigoNKkiQ9rZw" elementId="resetPerspective" label="&amp;Reset Perspective..." enabled="false"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A-MjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.maximizePart" label="Maximize Active View or Editor" enabled="false">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide/org.eclipse.ui.window.maximizePart"/>
+          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6BA8jMEeigoNKkiQ9rZw" elementId="savePerspective" label="Save Perspective &amp;As..." enabled="false"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Tz6A-cjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.window.minimizePart" label="Minimize Active View or Editor" enabled="false">
+            <persistedState key="IIdentifier" value="org.eclipse.ui.ide/org.eclipse.ui.window.minimizePart"/>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_pnjVkMjbEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.menu.help" label="&amp;Help">
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_ZZGxAMjbEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.directmenuitem.aboutafra" label="About Afra" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.handler.AboutHandler"/>
+      </children>
+    </mainMenu>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_Hmg4kNSjEeGwXp2p959l3w" elementId="org.eclipse.ui.editorss">
+      <children xsi:type="basic:PartStack" xmi:id="_HmhfoNSjEeGwXp2p959l3w" elementId="org.eclipse.e4.primaryDataStack">
+        <tags>newtablook</tags>
+        <tags>org.eclipse.e4.primaryDataStack</tags>
+        <tags>EditorStack</tags>
+      </children>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_WqRGcNS1EeGBn6dQ9VPexA" elementId="org.rebecalang.afra.ideplugin.view.AnalysisResultView" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.view.AnalysisResultView" label="Analysis Result" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" closeable="true">
+      <tags>View</tags>
+      <tags>categoryTag:General</tags>
+      <menus xmi:id="_HngXENSjEeGwXp2p959l3w" elementId="org.eclipse.ui.views.PropertySheet">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_Hng-INSjEeGwXp2p959l3w" elementId="org.eclipse.ui.views.PropertySheet"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_sS7Q8NS1EeGBn6dQ9VPexA" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources//icons/full/eview16/resource_persp.gif">
+      <tags>View</tags>
+      <tags>categoryTag:General</tags>
+      <menus xmi:id="_4UXAUNSmEeG-a6zBTyJ-wg" elementId="org.eclipse.ui.navigator.ProjectExplorer">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <menus xsi:type="menu:PopupMenu" xmi:id="_4VpZwNSmEeG-a6zBTyJ-wg" elementId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+        <tags>menuContribution:popup</tags>
+        <tags>popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu</tags>
+      </menus>
+      <toolbar xmi:id="_4UXAUdSmEeG-a6zBTyJ-wg" elementId="org.eclipse.ui.navigator.ProjectExplorer"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_LoTcYPYEEeaaz6i3UWiK7g" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.gif"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_JC73UPeeEeaaz6i3UWiK7g" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/problems_view.png"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_z86DUPeeEeaaz6i3UWiK7g" elementId="org.eclipse.search.internal.ui.SearchResultView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Search" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/search_src.png"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_DN-x8APaEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.view.CounterExampleGraphView" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.view.CounterExampleGraphView" label="Coutner Example Graph" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/counterexample.png"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_rNaj4AWlEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.view.StateInCounterExampleView" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.view.StateInCounterExampleView" label="State in Counter Example" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/counterexample.png"/>
+    <trimBars xmi:id="_VOV6ANTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.main.toolbar">
+      <children xsi:type="menu:ToolBar" xmi:id="_JqRrMMjcEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_L1VNgMjcEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.new" label="New" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/new_wiz.png" command="_7mxqMN3iEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_CLQfcMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.save" label="Save" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/save_edit_floppy.png" command="_pRNP0N3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_P8970MjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.saveall" label="Save All" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/saveall_edit.png" command="_jWvAAN3dEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_VnE-8MjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolbarseparator.0"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_ZClcgMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.directtoolitem.compile" label="Compile" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/compile.png" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.handler.CompileHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_dhepsMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.directtoolitem.modelchecking" label="Model Checking" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/model-checking.gif" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.handler.ModelCheckingHandler"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_lb6wsMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolbarseparator.1"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_n_SsYMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.search" label="Search" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/search_src.png" command="_EsdEAN3dEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_35sTkMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolbarseparator.2"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-xAJoMjdEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.nextannotation" label="Next Annotation" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/next_nav.png" tooltip="Next Annotation"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FqOEMMjeEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.previousannotation" label="Previous Annotation" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/prev_nav.png" tooltip="Previous Annotation"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_R_O5EMjeEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolbarseparator.3"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_S6sbwMjeEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.lasteditlocation" label="Last Edit Location" iconURI="platform:/plugin/org.eclipse.ui.editors/icons/full/etool16/last_edit_pos.png" command="_bip1IN3cEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_TdJokMjeEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.back" label="Back" iconURI="platform:/plugin/org.eclipse.ui/icons/full/elcl16/backward_nav.png" command="_ojyloN3bEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_T0OEwMjeEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.handledtoolitem.forward" label="Forward" iconURI="platform:/plugin/org.eclipse.ui/icons/full/elcl16/forward_nav.png" command="_Dr-B8N3eEeigKd7AdtrYlw"/>
+        <children xsi:type="menu:ToolControl" xmi:id="_ZQH3UMjfEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolcontrol.2" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+          <tags>stretch</tags>
+          <tags>SHOW_RESTORE_MENU</tags>
+        </children>
+        <children xsi:type="menu:ToolControl" xmi:id="_JoR_wMjfEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolcontrol.1" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+          <tags>SHOW_RESTORE_MENU</tags>
+        </children>
+        <children xsi:type="menu:ToolControl" xmi:id="_3GyagMjeEeiqAa2kCBB0Qw" elementId="org.rebecalang.afra.ideplugin.toolcontrol.0" accessibilityPhrase="Quic Search" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_VP1HwNTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.trim.status" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_VP1u0NTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.StatusLine" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim">
+        <tags>stretch</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_VQKe8NTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.HeapStatus" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim"/>
+      <children xsi:type="menu:ToolControl" xmi:id="_VQRMoNTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.ProgressBar" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_EqzTwMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.mark_duplicate_ids" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.MarkDuplicateElementIdsHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_RRp7QLy2EeOxWJvPH-7sUQ"/>
+  </handlers>
+  <handlers xmi:id="_ErYikMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.mark_duplicate_labels" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.MarkDuplicateLabelsHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_9ITpgL2IEeOqSr2XZwfnmA"/>
+  </handlers>
+  <handlers xmi:id="_Er7VIMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.mark_duplicate_attributes" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.MarkDuplicateAttributesHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_RObi4L2MEeOqSr2XZwfnmA"/>
+  </handlers>
+  <handlers xmi:id="_EsfV0MjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.repair_duplicate_ids" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.RepairDuplicateItemsHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_dySeYLzDEeO8eO1Rpb-rFA"/>
+  </handlers>
+  <handlers xmi:id="_EtA6QMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.unmark" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.UnmarkItemsHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_CFlw8L2LEeOqSr2XZwfnmA"/>
+  </handlers>
+  <handlers xmi:id="_Etn-QMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.autosizeColumns" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.AutosizeColumnsHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_jd7xgO5mEeOQXaYP-M2JBA"/>
+  </handlers>
+  <handlers xmi:id="_EuEqMMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.emf.ui.handler.resetToDefault" contributorURI="platform:/plugin/org.eclipse.e4.tools.emf.ui" contributionURI="bundleclass://org.eclipse.e4.tools.emf.ui/org.eclipse.e4.tools.emf.ui.internal.handlers.ResetToDefaultHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.emf.ui/fragment.e4xmi#_vsQXAPFwEeOSJuCPb-hb7A"/>
+  </handlers>
+  <handlers xmi:id="_EueS0MjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.preference.spy.handler.removeall" contributorURI="platform:/plugin/org.eclipse.e4.tools.preference.spy" contributionURI="bundleclass://org.eclipse.e4.tools.preference.spy/org.eclipse.e4.tools.preference.spy.handler.RemoveAllHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.preference.spy/fragment.e4xmi#_eBGTEGxiEeSQ7v0akw7aRA"/>
+  </handlers>
+  <handlers xmi:id="_Eu3UYMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.preference.spy.handler.removeentry" contributorURI="platform:/plugin/org.eclipse.e4.tools.preference.spy" contributionURI="bundleclass://org.eclipse.e4.tools.preference.spy/org.eclipse.e4.tools.preference.spy.handler.RemoveEntryHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.preference.spy/fragment.e4xmi#_iGEkYGxiEeSQ7v0akw7aRA"/>
+  </handlers>
+  <handlers xmi:id="_EvQ9AMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.preference.spy.handler.showall" contributorURI="platform:/plugin/org.eclipse.e4.tools.preference.spy" contributionURI="bundleclass://org.eclipse.e4.tools.preference.spy/org.eclipse.e4.tools.preference.spy.handler.ShowAllPreferencesHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.preference.spy/fragment.e4xmi#_ufxRsHY2EeSuTdKDH5hMwg"/>
+  </handlers>
+  <handlers xmi:id="_EvpXgMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.preference.spy.handler.expandall" contributorURI="platform:/plugin/org.eclipse.e4.tools.preference.spy" contributionURI="bundleclass://org.eclipse.e4.tools.preference.spy/org.eclipse.e4.tools.preference.spy.handler.ExpandAllHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.preference.spy/fragment.e4xmi#_4NM_IH_gEeSk-4v3KnNHPw"/>
+  </handlers>
+  <handlers xmi:id="_EwDAIMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.preference.spy.handler.collapseall" contributorURI="platform:/plugin/org.eclipse.e4.tools.preference.spy" contributionURI="bundleclass://org.eclipse.e4.tools.preference.spy/org.eclipse.e4.tools.preference.spy.handler.CollapseAllHandler">
+    <command href="../../plugin/org.eclipse.e4.tools.preference.spy/fragment.e4xmi#_68UQwH_gEeSk-4v3KnNHPw"/>
+  </handlers>
+  <bindingTables xmi:id="_VnmafNSzEeGBn6dQ9VPexA" bindingContext="_VnmacdSzEeGBn6dQ9VPexA">
+    <bindings xmi:id="_OL338PnLEea7gt_Qq78G6Q" elementId="ff.keybinding.m1q" keySequence="M1+Q">
+      <command href="../ff/Application.e4xmi#_6wlLfMgZEeSyMNYR5xypkQ"/>
+    </bindings>
+    <bindings xmi:id="_Q5EeAPnLEea7gt_Qq78G6Q" elementId="ff.keybinding.m1o" keySequence="M1+O">
+      <command href="../ff/Application.e4xmi#_6wlLgMgZEeSyMNYR5xypkQ"/>
+    </bindings>
+    <bindings xmi:id="_R6uIQPnLEea7gt_Qq78G6Q" elementId="ff.keybinding.m1s" keySequence="M1+S">
+      <command href="../ff/Application.e4xmi#_6wlLg8gZEeSyMNYR5xypkQ"/>
+    </bindings>
+    <bindings xmi:id="_S4xE4PnLEea7gt_Qq78G6Q" elementId="ff.keybinding.m1a" keySequence="M1+A">
+      <command href="../ff/Application.e4xmi#_6wlLhsgZEeSyMNYR5xypkQ"/>
+    </bindings>
+  </bindingTables>
+  <rootContext xmi:id="_VnmacdSzEeGBn6dQ9VPexA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_VnmactSzEeGBn6dQ9VPexA" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_Vnmac9SzEeGBn6dQ9VPexA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <descriptors xmi:id="_9E9jYNS4EeGBn6dQ9VPexA" elementId="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources//icons/full/eview16/resource_persp.gif" category="org.eclipse.e4.primaryNavigationStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_W6yT4NSjEeGgKvWHVYtRxQ" elementId="org.eclipse.ui.console.ConsoleView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.gif" allowMultiple="true" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_W6ziANSjEeGgKvWHVYtRxQ" elementId="org.eclipse.ui.views.ProgressView" label="Progress" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/pview.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_W63zcdSjEeGgKvWHVYtRxQ" elementId="org.rebecalang.afra.ideplugin.view.AnalysisResultView" label="Analysis Result" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" allowMultiple="true" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.view.AnalysisResultView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_ClMEcPNDEeaPzoR2QQVKQA" elementId="org.eclipse.ui.console.ConsoleView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console/icons/full/cview16/console_view.gif" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
+  <descriptors xmi:id="_9oragPedEeaaz6i3UWiK7g" elementId="org.eclipse.ui.views.ProblemView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/problems_view.png" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
+  <descriptors xmi:id="_vZqhoPeeEeaaz6i3UWiK7g" elementId="org.eclipse.search.internal.ui.SearchResultView" label="Search" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/search_src.png" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
+  <descriptors xmi:id="_4vpx4APZEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.view.CounterExampleGraphView" label="Counter Example Graph" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/counterexample.png" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.view.CounterExampleGraphView"/>
+  <descriptors xmi:id="_hv8j4AWlEeeKO5X4TFBPmw" elementId="org.rebecalang.afra.ideplugin.view.StateInCounterExampleView" label="State in Counter Example" iconURI="platform:/plugin/org.rebecalang.afra.ideplugin/icons/counterexample.png" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.view.StateInCounterExampleView"/>
+  <menuContributions xmi:id="_ZX_UgMjMEeigoNKkiQ9rZw" elementId="org.eclipse.e4.tools.spy.menucontribution.0" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" positionInParent="after=additions" parentId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+    <children xsi:type="menu:Menu" xmi:id="_ZX_UgcjMEeigoNKkiQ9rZw" elementId="convertArtifacts" contributorURI="platform:/plugin/org.eclipse.e4.tools.spy" label="convert">
+      <children xsi:type="menu:DirectMenuItem" xmi:id="_zAHiANqjEeit7Jg7cPcHYQ" elementId="org.rebecalang.afra.ideplugin.directmenuitem.dothething" label="ConvertToGraphviz" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.handler.popup.ConvertStateSpaceToGraphvizHandler"/>
+      <children xsi:type="menu:DirectMenuItem" xmi:id="_aUeCMd3FEeigKd7AdtrYlw" elementId="org.rebecalang.afra.ideplugin.directmenuitem.dothething" label="ConvertToROS" contributionURI="bundleclass://org.rebecalang.afra.ideplugin/org.rebecalang.afra.ideplugin.handler.popup.ConvertModelToROSHandler"/>
+    </children>
+  </menuContributions>
+  <commands xmi:id="_4YnFEN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.help.aboutAction" commandName="About" description="Open the about dialog">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Pxg3cN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.activateEditor" commandName="Activate Editor" description="Activate the editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_6hQl4N3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.project.closeProject" commandName="Close Project" description="Close the selected project" category="_PQMlIMjMEeigoNKkiQ9rZw"/>
+  <commands xmi:id="_h4Y9QN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.folding.collapse" commandName="Collapse" description="Collapses the folded region at the current selection">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_-dG-IN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.customizePerspective" commandName="Customize Perspective" description="Customize the current perspective">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_U9etYN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.delete" commandName="Delete" description="Delete the selection">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_NQa7EN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.delete.line" commandName="Delete Line" description="Delete a line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_b74lwN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.deletePrevious" commandName="Delete Previous" description="Delete the previous character">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_zLECIN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.copyLineUp" commandName="Duplicate Lines" description="Duplicates the selected lines and leaves the selection unchanged">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_vtE4UN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.folding.expand" commandName="Expand" description="Expands the folded region at the current selection">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_kcIIgN3iEeigKd7AdtrYlw" elementId="org.eclipse.jdt.ui.edit.text.java.format" commandName="Format" description="Format the selected text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GdtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Dr-B8N3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.forward" commandName="Forward" description="Navigate forward">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_QYb04N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.findReplace" commandName="Find and Replace" description="Find and replace text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_6ajoUN3aEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.goToResource" commandName="Go to" description="Go to a particular resource in the active view">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_l5VtYN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.lineStart" commandName="Line Start" description="Go to the start of the line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_B3ezQN3jEeigKd7AdtrYlw" elementId="org.eclipse.ui.ide.markCompleted" commandName="Mark Completed" description="Mark the selected tasks as completed">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Ge9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_7mxqMN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.newWizard" commandName="New" description="Open the New item wizard">
+    <parameters xmi:id="_7mxqMd3iEeigKd7AdtrYlw" elementId="newWizardId" name="New Wizard"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_8RvSwN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.newWindow" commandName="New Window" description="Open another window">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_0WhvsN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.next" commandName="Next" description="Navigate to the next item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_TDr6MN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.nextEditor" commandName="Next Editor" description="Switch to the next editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_C128gN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.dialogs.openMessageDialog" commandName="Open Message Dialog" description="Open a Message Dialog">
+    <parameters xmi:id="_C128gd3iEeigKd7AdtrYlw" elementId="title" name="Title"/>
+    <parameters xmi:id="_C128gt3iEeigKd7AdtrYlw" elementId="message" name="Message"/>
+    <parameters xmi:id="_C128g93iEeigKd7AdtrYlw" elementId="imageType" name="Image Type Constant" typeId="org.eclipse.ui.dialogs.Integer"/>
+    <parameters xmi:id="_C128hN3iEeigKd7AdtrYlw" elementId="defaultIndex" name="Default Button Index" typeId="org.eclipse.ui.dialogs.Integer"/>
+    <parameters xmi:id="_C128hd3iEeigKd7AdtrYlw" elementId="buttonLabel0" name="First Button Label"/>
+    <parameters xmi:id="_C128ht3iEeigKd7AdtrYlw" elementId="buttonLabel1" name="Second Button Label"/>
+    <parameters xmi:id="_C128h93iEeigKd7AdtrYlw" elementId="buttonLabel2" name="Third Button Label"/>
+    <parameters xmi:id="_C128iN3iEeigKd7AdtrYlw" elementId="buttonLabel3" name="Fourth Button Label"/>
+    <parameters xmi:id="_C128id3iEeigKd7AdtrYlw" elementId="cancelReturns" name="Return Value on Cancel"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GcNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_DUe8wN3jEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.openResource" commandName="Open Resource" description="Open an editor on a particular resource">
+    <parameters xmi:id="_DUe8wd3jEeigKd7AdtrYlw" elementId="filePath" name="File Path" typeId="org.eclipse.ui.ide.resourcePath"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_bJnYIN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.project.openProject" commandName="Open Project" description="Open a project">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_E4VOwN3bEeigKd7AdtrYlw" elementId="org.eclipse.e4.ui.importer.openDirectory" commandName="Open Projects from File System...">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Ge9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ACPpkN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.previous" commandName="Previous" description="Navigate to the previous item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_5sjLcN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.part.previousPage" commandName="Previous Page" description="Switch to the previous page">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_rj6qkN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.previousView" commandName="Previous View" description="Switch to the previous view">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_fi2pQN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.print" commandName="Print" description="Print">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_gB_fgN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigator.resources.nested.changeProjectPresentation" commandName="P&amp;rojects Presentation">
+    <parameters xmi:id="_gB_fgd3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigator.resources.nested.enabled" name="&amp;Hierarchical"/>
+    <parameters xmi:id="_gB_fgt3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.commands.radioStateParameter" name="Nested Project view - Radio State" optional="false"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Ge9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_9JKjoN3aEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.resetPerspective" commandName="Reset Perspective" description="Reset the current perspective to its default state">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ZH5YAN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.lineUp" commandName="Select Line Up" description="Extend the selection to the previous line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_g-vboN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.showKeyAssist" commandName="Show Key Assist" description="Show the key assist dialog">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_GNgKkN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.columnPrevious" commandName="Previous Column" description="Go to the previous column">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_dgGKgN3iEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.columnNext" commandName="Select Next Column" description="Select the next column">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_FHEuAN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.pageUp" commandName="Page Up" description="Go up one page">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_X1_LkN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.findPrevious" commandName="Find Previous" description="Find previous item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_O82gUN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.up" commandName="Up" description="Navigate up one level">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_U4xFIN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.perspectives.showPerspective" commandName="Show Perspective" description="Show a particular perspective">
+    <parameters xmi:id="_U4xFId3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.perspectives.showPerspective.perspectiveId" name="Parameter"/>
+    <parameters xmi:id="_U4xFIt3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.perspectives.showPerspective.newWindow" name="In New Window"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Gc9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_dUbC0N3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.project.properties" commandName="Properties" description="Display the properties of the selected item's project ">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Wb-EoN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.delete.line.to.beginning" commandName="Delete to Beginning of Line" description="Delete to the beginning of a line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ZupWUN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.scroll.lineUp" commandName="Scroll Line Up" description="Scroll up one line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_8is5MN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.cut.line" commandName="Cut Line" description="Cut a line of text, or multiple lines when invoked again without interruption">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_H6htEN3eEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.properties" commandName="Properties" description="Display the properties of the selected item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_fDxA4N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.import" commandName="Import" description="Import">
+    <parameters xmi:id="_fDxA4d3bEeigKd7AdtrYlw" elementId="importWizardId" name="Import Wizard"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_M9Yi8N3eEeigKd7AdtrYlw" elementId="org.eclipse.search.ui.openSearchDialog" commandName="Open Search Dialog" description="Open the Search dialog">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_9oAUYN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.folding.expand_all" commandName="Expand All" description="Expands all folded regions">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ddzvsN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters" commandName="Show Whitespace Characters" description="Shows whitespace characters in current text editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_4BNgcN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.windowStart" commandName="Window Start" description="Go to the start of the window">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_oRkXwN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.lowerCase" commandName="To Lower Case" description="Changes the selection to lower case">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_5A6p8N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.closePerspective" commandName="Close Perspective" description="Close the current perspective">
+    <parameters xmi:id="_5A6p8d3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.closePerspective.perspectiveId" name="Perspective Id"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_nCCCgN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.lineDown" commandName="Select Line Down" description="Extend the selection to the next line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_IeM3UN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.textEnd" commandName="Select Text End" description="Select to the end of the text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Pbc9UN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.goInto" commandName="Go Into" description="Navigate into the selected item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_y-HkkN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.nextSubTab" commandName="Next Sub-Tab" description="Switch to the next sub-tab">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_3QNE0N3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.moveLineDown" commandName="Move Lines Down" description="Moves the selected lines down">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_b3N6cN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.restartWorkbench" commandName="Restart" description="Restart the workbench">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_wtx5oN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.findNext" commandName="Find Next" description="Find next item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_UZBqkN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.savePerspective" commandName="Save Perspective As" description="Save the current perspective">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ixEuMN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.expandAll" commandName="Expand All" description="Expand the current tree">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_l-HR8N3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.previousEditor" commandName="Previous Editor" description="Switch to the previous editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_k1NwMN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.closeOthers" commandName="Close Others" description="Close all editors except the one that is active">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_jWvAAN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.saveAll" commandName="Save All" description="Save all current contents">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_hNL5kN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.shiftLeft" commandName="Shift Left" description="Shift a block of text to the left">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_eS0aMN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.folding.collapse_all" commandName="Collapse All" description="Collapses all folded regions">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_TOMPIN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.showSystemMenu" commandName="Show System Menu" description="Show the system menu">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Xbk1kN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.part.nextPage" commandName="Next Page" description="Switch to the next page">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_BCzHoN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.rename" commandName="Rename" description="Rename the selected item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_RptkoN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.minimizePart" commandName="Minimize Active View or Editor" description="Minimizes the active view or editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ZEQqoN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.clear.mark" commandName="Clear Mark" description="Clear the mark">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Qole0N3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.windowEnd" commandName="Select Window End" description="Select to the end of the window">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_pRNP0N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.save" commandName="Save" description="Save the current contents">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_KJ8ncN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.preferences" commandName="Preferences" description="Open the preferences dialog">
+    <parameters xmi:id="_KJ8ncd3dEeigKd7AdtrYlw" elementId="preferencePageId" name="Preference Page"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Jcg5sN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.wordPrevious" commandName="Previous Word" description="Go to the previous word">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_OkfgIN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.upperCase" commandName="To Upper Case" description="Changes the selection to upper case">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_MW8qgN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.revertToSaved" commandName="Revert to Saved" description="Revert to the last saved state">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ND7sUN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.views.properties.NewPropertySheetCommand" commandName="Properties">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Ge9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_LpbdMN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.nextView" commandName="Next View" description="Switch to the next view">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_K_vnAN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.copy" commandName="Copy" description="Copy the selection to the clipboard">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="__Jt0MN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.previousSubTab" commandName="Previous Sub-Tab" description="Switch to the previous sub-tab">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_6vVTkN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.closeAllSaved" commandName="Close All Saved" description="Close all saved editors">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ACz_YN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.showIn" commandName="Show In">
+    <parameters xmi:id="_ACz_Yd3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.showIn.targetId" name="Show In Target Id" optional="false"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Byw6EN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.dialogs.openInputDialog" commandName="Open Input Dialog" description="Open an Input Dialog">
+    <parameters xmi:id="_Byw6Ed3dEeigKd7AdtrYlw" elementId="title" name="Title"/>
+    <parameters xmi:id="_Byw6Et3dEeigKd7AdtrYlw" elementId="message" name="Message"/>
+    <parameters xmi:id="_Byw6E93dEeigKd7AdtrYlw" elementId="initialValue" name="Initial Value"/>
+    <parameters xmi:id="_Byw6FN3dEeigKd7AdtrYlw" elementId="cancelReturns" name="Return Value on Cancel"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GcNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_EsdEAN3dEeigKd7AdtrYlw" elementId="org.eclipse.search.ui.openFileSearchPage" commandName="File Search" description="Open the Search dialog's file search page">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_-xpkYN3aEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.paste" commandName="Paste" description="Paste from the clipboard">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_DRh-IN3dEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.windowStart" commandName="Select Window Start" description="Select to the start of the window">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_8ImzoN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.selectWorkingSets" commandName="Select Working Sets" description="Select the working sets that are applicable for this window.">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_9QDj4N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.close" commandName="Close" description="Close the active editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_7Mi0AN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.redo" commandName="Redo" description="Redo the last operation">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_TqXDMN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.newQuickMenu" commandName="New menu" description="Open the New menu">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_1livQN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.copyLineDown" commandName="Copy Lines" description="Duplicates the selected lines and moves the selection to the copy">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_zs-rIN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.selectAll" commandName="Select All" description="Select all">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_YXC0wN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly" commandName="Show Selected Element Only" description="Show Selected Element Only">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_t_xQsN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.wordPrevious" commandName="Select Previous Word" description="Select the previous word">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_3HaKoN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.lineUp" commandName="Line Up" description="Go up one line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_vLbLgN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.exit" commandName="Exit" description="Exit the application">
+    <parameters xmi:id="_vLbLgd3cEeigKd7AdtrYlw" elementId="mayPrompt" name="may prompt"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_sMHhwN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.lineEnd" commandName="Select Line End" description="Select to the end of the line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_UrmdwN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.openWorkspace" commandName="Switch Workspace" description="Open the workspace selection dialog" category="_PP97oMjMEeigoNKkiQ9rZw"/>
+  <commands xmi:id="_ZQ1jgN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.export" commandName="Export" description="Export">
+    <parameters xmi:id="_ZQ1jgd3cEeigKd7AdtrYlw" elementId="exportWizardId" name="Export Wizard"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_cF328N3cEeigKd7AdtrYlw" elementId="org.eclipse.search.ui.performTextSearchProject" commandName="Find Text in Project" description="Searches the files in the project for specific text.">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Vm4aQN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.closeAll" commandName="Close All" description="Close all editors">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_lQ0jkN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.ide.showInSystemExplorer" commandName="Show In (System Explorer)" description="Show in system's explorer (file manager)">
+    <parameters xmi:id="_lQ0jkd3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.ide.showInSystemExplorer.path" name="Resource System Path Parameter"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_j5PsoN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.lineStart" commandName="Select Line Start" description="Select to the beginning of the line of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_dytMMN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.openLocalFile" commandName="Open File..." description="Open a file">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_jHe4gN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.editors.lineNumberToggle" commandName="Show Line Numbers" description="Toggle display of line numbers">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_e6-b0N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.refresh" commandName="Refresh" description="Refresh the selected items">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_bip1IN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.forwardHistory" commandName="Forward History" description="Move forward in the editor navigation history">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_WpDB4N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.cut" commandName="Cut" description="Cut the selection to the clipboard">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_cVdAgN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.folding.toggle" commandName="Toggle Folding" description="Toggles folding in the current editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ojyloN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.back" commandName="Back" description="Navigate back">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_KPDmYN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.splitEditor" commandName="Toggle Split Editor" description="Split or join the currently active editor.">
+    <parameters xmi:id="_KPDmYd3cEeigKd7AdtrYlw" elementId="Splitter.isHorizontal" name="Orientation" optional="false"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_IuX2wN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.previousPerspective" commandName="Previous Perspective" description="Switch to the previous perspective">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_J1SbgN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.collapseAll" commandName="Collapse All" description="Collapse the current tree">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_RSVb4N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.deleteNextWord" commandName="Delete Next Word" description="Delete the next word">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_SuuhYN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.undo" commandName="Undo" description="Undo the last operation">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_QdI5QN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.openEditorDropDown" commandName="Quick Switch Editor" description="Open the editor drop down list">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_NEKLQN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.removeFromWorkingSet" commandName="Remove From Working Set" description="Removes the selected object from a working set.">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_PDDg4N3cEeigKd7AdtrYlw" elementId="org.eclipse.mylyn.tasks.ui.command.goToNextUnread" commandName="Go To Next Unread Task">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_OUpiwN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.ide.deleteCompleted" commandName="Delete Completed Tasks" description="Delete the tasks marked as completed">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Ge9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_gIl68N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.switchToEditor" commandName="Switch to Editor" description="Switch to an editor">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_IFt7UN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.saveAs" commandName="Save As" description="Save the current contents to another location">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_1nqEkN3bEeigKd7AdtrYlw" elementId="org.eclipse.search.ui.performTextSearchWorkingSet" commandName="Find Text in Working Set" description="Searches the files in the working set for specific text.">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_7RsPMN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.help.displayHelp" commandName="Display Help" description="Display a Help topic">
+    <parameters xmi:id="_7RsPMd3bEeigKd7AdtrYlw" elementId="href" name="Help topic href"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_twG5gN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.findIncrementalReverse" commandName="Incremental Find Reverse" description="Incremental find reverse">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_G8lJAN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.contentAssist.contextInformation" commandName="Context Information" description="Show Context Information">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_ByVRsN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.nextTab" commandName="Next Tab" description="Switch to the next tab">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_AeuUwN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.nextPerspective" commandName="Next Perspective" description="Switch to the next perspective">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_Fy2g0N3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.browser.openBrowser" commandName="Open Browser" description="Opens the default web browser.">
+    <parameters xmi:id="_Fy2g0d3cEeigKd7AdtrYlw" elementId="url" name="URL"/>
+    <parameters xmi:id="_Fy2g0t3cEeigKd7AdtrYlw" elementId="browserId" name="Browser Id"/>
+    <parameters xmi:id="_Fy2g093cEeigKd7AdtrYlw" elementId="name" name="Browser Name"/>
+    <parameters xmi:id="_Fy2g1N3cEeigKd7AdtrYlw" elementId="tooltip" name="Browser Tooltip"/>
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_FD6-QN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.showRulerAnnotationInformation" commandName="Show Ruler Annotation Tooltip" description="Displays annotation information for the caret line in a focused hover">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_DBOGsN3cEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.showInformation" commandName="Show Tooltip Description" description="Displays information for the current caret location in a focused hover">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_9T9o8N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.join.lines" commandName="Join Lines" description="Join lines of text">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_-NcOoN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.window.showContextMenu" commandName="Show Context Menu" description="Show the context menu">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="__m6jAN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.views.log.jdt.showinconsole" commandName="&amp;Show In Console" description="Show Stack Trace in Console View">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-Ge9LIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_5YZyUN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.deleteNext" commandName="Delete Next" description="Delete the next character">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_77h2YN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.pageDown" commandName="Select Page Down" description="Select to the bottom of the page">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_4EQp4N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.wordNext" commandName="Next Word" description="Go to the next word">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_iuCTMN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.toggleInsertMode" commandName="Toggle Insert Mode" description="Toggle insert mode">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GWtLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_pk9HsN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.select.wordNext" commandName="Select Next Word" description="Select the next word">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_qnDd4N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.pageDown" commandName="Page Down" description="Go down one page">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_y9C4cN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.text.goto.columnNext" commandName="Next Column" description="Go to the next column">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYdLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_lpFvEN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.navigate.back" commandName="Back" description="Navigate back">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GZNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_jurQ0N3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.file.closePart" commandName="Close Part" description="Close the active workbench part">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GatLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_2radEN3aEeigKd7AdtrYlw" elementId="org.eclipse.oomph.setup.editor.importProjects" commandName="Import Projects">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GYNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_hL05kN3bEeigKd7AdtrYlw" elementId="org.eclipse.ui.help.dynamicHelp" commandName="Show Contextual Help" description="Open the contextual help">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GbNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_0njH4N3aEeigKd7AdtrYlw" elementId="org.eclipse.ui.edit.move" commandName="Move..." description="Move the selected item">
+    <category href="file:/Users/ekhamespanah/Desktop/Academics/Rebeca/workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi#_Co-GaNLIEeiwIeyL7r-m4g"/>
+  </commands>
+  <commands xmi:id="_cLyLgN35EeihTZWqRjZ_Iw" elementId="org.eclipse.ui.window.fullscreenmode" commandName="Toggle Full Screen" description="Toggles the window between full screen and normal" category="_PQC0IMjMEeigoNKkiQ9rZw"/>
+  <addons xmi:id="_VnmadNSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_VnmaddSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_VnmadtSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_Vnmad9SzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_VnmaeNSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_VnmaedSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_4aT9EMjMEeigoNKkiQ9rZw" elementId="Cleanup Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon"/>
+  <addons xmi:id="_4a5y8MjMEeigoNKkiQ9rZw" elementId="DnD Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
+  <addons xmi:id="_4bzK0MjMEeigoNKkiQ9rZw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
+  <addons xmi:id="_4cegQMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_4dGyYMjMEeigoNKkiQ9rZw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
+  <addons xmi:id="_4dz9AMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_4epDcMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
+  <categories xmi:id="_PPT0UMjMEeigoNKkiQ9rZw" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
+  <categories xmi:id="_PPW3oMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
+  <categories xmi:id="_PPZ68MjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.edit" name="Edit"/>
+  <categories xmi:id="_PPdlUMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.wikitext.ui.editor.category" name="WikiText Markup Editing Commands" description="commands for editing lightweight markup"/>
+  <categories xmi:id="_PPgooMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.tasks.ui.category.editor" name="Task Editor"/>
+  <categories xmi:id="_PPjE4MjMEeigoNKkiQ9rZw" elementId="org.eclipse.buildship.ui.project" name="Buildship" description="Contains the Buildship specific commands"/>
+  <categories xmi:id="_PPlhIMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.builds.ui.category.Commands" name="Builds"/>
+  <categories xmi:id="_PPokcMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.ide.markerContents" name="Contents" description="The category for menu contents"/>
+  <categories xmi:id="_PPrnwMjMEeigoNKkiQ9rZw" elementId="org.eclipse.oomph.setup.category" name="Oomph Setup"/>
+  <categories xmi:id="_PPuEAMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.textEditor" name="Text Editing" description="Text Editing Commands"/>
+  <categories xmi:id="_PPwgQMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.context.ui.commands" name="Focused UI" description="Task-Focused Interface"/>
+  <categories xmi:id="_PPzjkMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.tasks.ui.commands" name="Task Repositories"/>
+  <categories xmi:id="_PP1_0MjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.navigate" name="Navigate"/>
+  <categories xmi:id="_PP4cEMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.java.ui.commands" name="Java Context" description="Java Task-Focused Interface Commands"/>
+  <categories xmi:id="_PP64UMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.wikitext.context.ui.commands" name="%commands.category.name" description="%commands.category.description"/>
+  <categories xmi:id="_PP97oMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.file" name="File"/>
+  <categories xmi:id="_PQAX4MjMEeigoNKkiQ9rZw" elementId="org.eclipse.compare.ui.category.compare" name="Compare" description="Compare command category"/>
+  <categories xmi:id="_PQC0IMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.window" name="Window"/>
+  <categories xmi:id="_PQFQYMjMEeigoNKkiQ9rZw" elementId="org.eclipse.jdt.ui.category.refactoring" name="Refactor - Java" description="Java Refactoring Actions"/>
+  <categories xmi:id="_PQI6wMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.help" name="Help"/>
+  <categories xmi:id="_PQMlIMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.project" name="Project"/>
+  <categories xmi:id="_PQQPgMjMEeigoNKkiQ9rZw" elementId="org.eclipse.search.ui.category.search" name="Search" description="Search command category"/>
+  <categories xmi:id="_PQT54MjMEeigoNKkiQ9rZw" elementId="org.eclipse.debug.ui.category.run" name="Run/Debug" description="Run/Debug command category"/>
+  <categories xmi:id="_PQW9MMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.dialogs" name="Dialogs" description="Commands for opening dialogs"/>
+  <categories xmi:id="_PQbOoMjMEeigoNKkiQ9rZw" elementId="org.eclipse.oomph" name="Oomph"/>
+  <categories xmi:id="_PQeR8MjMEeigoNKkiQ9rZw" elementId="org.eclipse.egit.ui.commandCategory" name="Git"/>
+  <categories xmi:id="_PQh8UMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ui.category.perspectives" name="Perspectives" description="Commands for opening perspectives"/>
+  <categories xmi:id="_PQk_oMjMEeigoNKkiQ9rZw" elementId="org.eclipse.ltk.ui.category.refactoring" name="Refactoring"/>
+  <categories xmi:id="_PQoC8MjMEeigoNKkiQ9rZw" elementId="org.eclipse.gef.category.view" name="View" description="View"/>
+  <categories xmi:id="_PQrGQMjMEeigoNKkiQ9rZw" elementId="org.eclipse.jdt.ui.category.source" name="Source" description="Java Source Actions"/>
+  <categories xmi:id="_PQuwoMjMEeigoNKkiQ9rZw" elementId="org.eclipse.mylyn.commons.repositories.ui.category.Team" name="Team"/>
+  <categories xmi:id="_PQxz8MjMEeigoNKkiQ9rZw" elementId="org.eclipse.pde.runtime.spy.commands.category" name="Spy"/>
+  <categories xmi:id="_PQ0QMMjMEeigoNKkiQ9rZw" elementId="org.eclipse.pde.ui.category.source" name="Manifest Editor Source" description="PDE Source Page actions"/>
+  <categories xmi:id="_PQ2scMjMEeigoNKkiQ9rZw" elementId="org.eclipse.oomph.commands" name="Oomph"/>
+  <categories xmi:id="_PQ5IsMjMEeigoNKkiQ9rZw" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
+  <categories xmi:id="_PQ7k8MjMEeigoNKkiQ9rZw" elementId="org.eclipse.wst.jsdt.ui.category.source" name="Source" description="JavaScript Source Actions"/>
+  <categories xmi:id="_PQ-BMMjMEeigoNKkiQ9rZw" elementId="org.eclipse.wst.server.ui" name="Server" description="Server"/>
+  <categories xmi:id="_PQ_2YMjMEeigoNKkiQ9rZw" elementId="org.eclipse.wst.jsdt.debug.ui.category" name="JavaScript Debug" description="Tooling for debugging JavaScript"/>
+  <categories xmi:id="_PRCSoMjMEeigoNKkiQ9rZw" elementId="org.eclipse.wst.jsdt.ui.category.refactoring" name="Refactor - JavaScript" description="JavaScript Refactoring Actions"/>
+  <categories xmi:id="_PREu4MjMEeigoNKkiQ9rZw" elementId="org.eclipse.eclemma.ui" name="EclEmma Code Coverage"/>
+</application:Application>

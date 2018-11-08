@@ -1,0 +1,62 @@
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build_products: # runs not using Workflows must have a `build` job as entry point
+
+    docker: # run the steps with Docker
+      - image: circleci/openjdk:10-jdk # ...with this image as the primary container; this is where all `steps` will run
+
+
+    working_directory: ~/afra # directory where steps will run
+
+    steps: # a collection of executable commands
+
+      - checkout # check out source code to working directory
+      - setup_remote_docker:   # (2)
+          docker_layer_caching: true # (3)
+
+      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
+          key: afra
+
+      - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.rmc/master/target/rmc-2.7.5.jar
+      - run: mvn -N install:install-file -Dfile=rmc-2.7.5.jar -DgroupId=org.rebecalang -DartifactId=rmc -Dversion=2.7.5 -Dpackaging=jar
+      - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.modeltransformer/master/target/modeltransformer-1.3.0.jar
+      - run: mvn -N install:install-file -Dfile=modeltransformer-1.3.0.jar -DgroupId=org.rebecalang -DartifactId=modeltransformer -Dversion=1.3.0 -Dpackaging=jar
+      - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.statespacetransformer/master/target/statespacetransformer-1.0.0.jar
+      - run: mvn -N install:install-file -Dfile=statespacetransformer-1.0.0.jar -DgroupId=org.rebecalang -DartifactId=statespacetransformer -Dversion=1.0.0 -Dpackaging=jar
+
+      - run: mvn install # run the actual tests
+
+      - save_cache: # saves the project dependencies
+          paths:
+            - ~/.m2
+          key: afra
+
+      - persist_to_workspace: 
+          root: /home/circleci
+          paths:
+            - afra/org.rebecalang.afra.repository/target/products/
+
+  deploy_release: # runs not using Workflows must have a `build` job as entry point
+    docker: # run the steps with Docker
+      - image: circleci/golang:1.8
+
+    working_directory: ~/afra # directory where steps will run
+
+    steps: # a collection of executable commands
+      - attach_workspace:
+          at: /home/circleci
+      - run: go get github.com/aktau/github-release
+      - run: github-release upload --replace --user $CIRCLE_PROJECT_USERNAME --repo $CIRCLE_PROJECT_REPONAME --tag CircleCIRelease --file "org.rebecalang.afra.repository/target/products/org.rebecalang.afra.ideplugins-win32.win32.x86_64.zip" --name Afra-win32.win32.x86_64.zip
+      - run: github-release upload --replace --user $CIRCLE_PROJECT_USERNAME --repo $CIRCLE_PROJECT_REPONAME --tag CircleCIRelease --file "org.rebecalang.afra.repository/target/products/org.rebecalang.afra.ideplugins-win32.win32.x86.zip" --name Afra-win32.win32.x86
+      - run: github-release upload --replace --user $CIRCLE_PROJECT_USERNAME --repo $CIRCLE_PROJECT_REPONAME --tag CircleCIRelease --file "org.rebecalang.afra.repository/target/products/org.rebecalang.afra.ideplugins-linux.gtk.x86_64.tar.gz" --name Afra-linux.gtk.x86_64.tar.gz
+      - run: github-release upload --replace --user $CIRCLE_PROJECT_USERNAME --repo $CIRCLE_PROJECT_REPONAME --tag CircleCIRelease --file "org.rebecalang.afra.repository/target/products/org.rebecalang.afra.ideplugins-linux.gtk.x86.tar.gz" --name Afra-linux.gtk.x86.tar.gz
+      - run: github-release upload --replace --user $CIRCLE_PROJECT_USERNAME --repo $CIRCLE_PROJECT_REPONAME --tag CircleCIRelease --file "org.rebecalang.afra.repository/target/products/org.rebecalang.afra.ideplugins-macosx.cocoa.x86_64.tar.gz" --name Afra-macosx.cocoa.x86_64.tar.gz
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - deploy_release:
+          requires:
+            - build_products
+      - build_products
