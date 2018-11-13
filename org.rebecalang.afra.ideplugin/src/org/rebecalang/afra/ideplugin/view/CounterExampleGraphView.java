@@ -188,6 +188,8 @@ public class CounterExampleGraphView extends ViewPart {
 			
 			GraphConnection gc = new GraphConnection(graph, ZestStyles.CONNECTIONS_DIRECTED, 
 					states.get(source), states.get(destination));
+			if (source.equals(destination))
+				gc.setCurveDepth(50);
 			String messageText = "";
 			if (transition.getMessageserver() != null) {
 				Messageserver messageserver = transition.getMessageserver();
