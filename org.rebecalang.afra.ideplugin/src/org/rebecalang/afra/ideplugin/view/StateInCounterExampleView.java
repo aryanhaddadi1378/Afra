@@ -63,7 +63,7 @@ public class StateInCounterExampleView extends ViewPart {
 				items.add(new Object[] { "State Variables", parent.getStatevariables() });
 				items.add(new Object[] { "Queue Content", parent.getQueue()});
 				if (parent.getNow() != null)
-					items.add(new String[] { "Now", (parent.getNow().equals(Integer.toString(Integer.MAX_VALUE)) ? "infinity" : parent.getNow().toString()) });
+					items.add(new String[] { "Now", (parent.getNow().intValue() == Integer.MAX_VALUE) ? "infinity" : parent.getNow().toString() });
 				if (parent.getPc() != null)
 					items.add(new String[] { "Program Counter", parent.getPc().toString() });
 				if (parent.getRes() != null)

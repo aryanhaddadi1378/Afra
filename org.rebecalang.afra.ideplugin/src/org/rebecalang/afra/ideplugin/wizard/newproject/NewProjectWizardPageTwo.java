@@ -23,7 +23,7 @@ public class NewProjectWizardPageTwo extends WizardPage {
 
 	private static final String VERSION_1 = "2.0";
 	private static final String VERSION_2 = "2.1\t\t\t\t\t";
-	private static final String VERSION_3 = "2.2                    ";
+	private static final String VERSION_3 = "2.3\t\t\t\t\t";
 
 	CompilerFeature languageVersion;
 	String projectExtention;
@@ -150,14 +150,13 @@ public class NewProjectWizardPageTwo extends WizardPage {
 
 		button = new Button(version, SWT.RADIO);
 		button.setText(VERSION_3);
-		button.setEnabled(false);
 		button.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				widgetDefaultSelected(e);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
-				languageVersion = CompilerFeature.CORE_2_2;
+				languageVersion = CompilerFeature.CORE_2_3;
 			}
 		});
 
