@@ -34,12 +34,7 @@ public class CoreRebecaProjectPropertyPage extends AbstractRebecaProjectProperty
 		setProjectAttribute(project, "dfs-maxdepth", value);
 	}
 	public static int getProjectMaxDepth(IProject project) {
-		String maxDepth = getProjectAttribute(project, "dfs-maxdepth");
-		if (maxDepth == null) {
-			maxDepth = DEFAULT_MAX_DEPTH;
-			setProjectAttribute(project, "dfs-maxdepth", maxDepth);
-		}
-		return Integer.parseInt(maxDepth);
+		return Integer.parseInt(getProjectAttribute(project, "dfs-maxdepth", DEFAULT_MAX_DEPTH));
 	}
 	
 	

@@ -1,8 +1,9 @@
 package org.rebecalang.afra.ideplugin.preference;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.core.resources.ProjectScope;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.IScopeContext;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -15,6 +16,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPropertyPage;
 import org.eclipse.ui.dialogs.PropertyPage;
+import org.osgi.service.prefs.BackingStoreException;
 import org.rebecalang.compiler.utils.CompilerFeature;
 
 
@@ -37,76 +39,51 @@ public class AbstractRebecaProjectPropertyPage extends PropertyPage implements I
 		setProjectAttribute(project, "hashMapSize", value);
 	}
 	public static String getProjectHashtableSize(IProject project) {
-		String hashMapSize = getProjectAttribute(project, "hashMapSize");
-		if (hashMapSize == null) {
-			hashMapSize = DEFAULT_HASHMAP_SIZE;
-			setProjectAttribute(project, "hashMapSize", DEFAULT_HASHMAP_SIZE);
-		}
-		return hashMapSize;
+		return getProjectAttribute(project, "hashMapSize", DEFAULT_HASHMAP_SIZE);
 	}
 	
 	public static void setProjectExportStateSpace(IProject project, boolean value) {
 		setProjectAttribute(project, "exportStateSpace", Boolean.toString(value));
 	}
 	public static boolean getProjectExportStateSpace(IProject project) {
-		String result = getProjectAttribute(project, "exportStateSpace");
-		if (result == null) {
-			result = "false";
-			setProjectAttribute(project, "exportStateSpace", result);
-		}
-		return Boolean.parseBoolean(result);
+		return Boolean.parseBoolean(getProjectAttribute(project, "exportStateSpace", "false"));
 	}
 	
 	public static void setProjectRunInSafeMode(IProject project, boolean value) {
 		setProjectAttribute(project, "runInSafeMode", Boolean.toString(value));
 	}
 	public static boolean getProjectRunInSafeMode(IProject project) {
-		String result = getProjectAttribute(project, "runInSafeMode");
-		if (result == null) {
-			result = "true";
-			setProjectAttribute(project, "runInSafeMode", result);
-		}
-		return Boolean.parseBoolean(result);
+		return Boolean.parseBoolean(getProjectAttribute(project, "runInSafeMode", "true"));
 	}
 
 	protected static void setProjectAttribute(IProject project, String key, String value) {
+		IScopeContext context = new ProjectScope(project);
+		IEclipsePreferences projectPreferences = context.getNode("Rebeca");
+		projectPreferences.put(key, value);
 		try {
-			project.setPersistentProperty(new QualifiedName("rebeca", key), value);
-		} catch (CoreException e) {
+			projectPreferences.flush();
+		} catch (BackingStoreException e) {
 			e.printStackTrace();
 		}
 	}
-	protected static String getProjectAttribute(IProject project, String key) {
-		try {
-			return project.getPersistentProperty(new QualifiedName("rebeca", key));
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-		return null;
+	protected static String getProjectAttribute(IProject project, String key, String defult) {
+		IScopeContext context = new ProjectScope(project);
+		IEclipsePreferences projectPreferences = context.getNode("Rebeca");
+		return projectPreferences.get(key, defult);
 	}
 
 	public static void setProjectType(IProject project, String value) {
 		setProjectAttribute(project, "projectType", value);
 	}
 	public static String getProjectType(IProject project) {
-		String projectType = getProjectAttribute(project, "projectType");
-		if (projectType == null) {
-			projectType = "CoreRebeca";
-			setProjectAttribute(project, "projectType", projectType);
-		}
-		return projectType;
+		return getProjectAttribute(project, "projectType", "CoreRebeca");
 	}
 	
 	public static void setProjectLanguageVersion(IProject project, CompilerFeature value) {
 		setProjectAttribute(project, "languageVersion", value.toString());
 	}
 	public static CompilerFeature getProjectLanguageVersion(IProject project) {
-		String languageVersion = getProjectAttribute(project, "languageVersion");
-		if (languageVersion == null) {
-			languageVersion = CompilerFeature.CORE_2_1.toString();
-			setProjectAttribute(project, "languageVersion", languageVersion);
-		}
-		return CompilerFeature.valueOf(languageVersion);
+		return CompilerFeature.valueOf(getProjectAttribute(project, "languageVersion", CompilerFeature.CORE_2_1.toString()));
 	}
 	
 	

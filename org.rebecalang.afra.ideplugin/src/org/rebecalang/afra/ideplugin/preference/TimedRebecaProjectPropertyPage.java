@@ -20,12 +20,7 @@ public class TimedRebecaProjectPropertyPage extends AbstractRebecaProjectPropert
 		setProjectAttribute(project, "timedrebeca-semanticsmodel", Boolean.toString(value));
 	}
 	public static boolean getProjectSemanticsModelIsTTS(IProject project) {
-		String result = getProjectAttribute(project, "timedrebeca-semanticsmodel");
-		if (result == null) {
-			result = "true";
-			setProjectAttribute(project, "timedrebeca-semanticsmodel", result);
-		}
-		return Boolean.parseBoolean(result);
+		return Boolean.parseBoolean(getProjectAttribute(project, "timedrebeca-semanticsmodel", "true"));
 	}
 	
 
