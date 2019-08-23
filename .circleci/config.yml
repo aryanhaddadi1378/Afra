@@ -18,7 +18,7 @@ jobs: # a collection of steps
           key: afra
 
       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.rmc/master/target/rmc-2.8.1.jar
-      - run: mvn -N install:install-file -Dfile=rmc-2.8.1.jar -DgroupId=org.rebecalang -DartifactId=rmc -Dversion=2.8.1 -Dpackaging=jar
+      - run: mvn -N install:install-file -Dfile=rmc-2.8.2.jar -DgroupId=org.rebecalang -DartifactId=rmc -Dversion=2.8.1 -Dpackaging=jar
       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.modeltransformer/master/target/modeltransformer-1.3.1.jar
       - run: mvn -N install:install-file -Dfile=modeltransformer-1.3.1.jar -DgroupId=org.rebecalang -DartifactId=modeltransformer -Dversion=1.3.1 -Dpackaging=jar
       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.statespacetransformer/master/target/statespacetransformer-1.0.0.jar
