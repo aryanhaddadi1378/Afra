@@ -87,8 +87,8 @@ public class RebecaProjectSupport {
 			createFile(file);			
 		} else {
 			if (type.equals("CoreRebeca")) {
-				copyFile(project, "DiningPhilsophers.rebeca");
-				copyFile(project, "DiningPhilsophers.property");
+				copyFile(project, "DiningPhilosophers.rebeca");
+				copyFile(project, "DiningPhilosophers.property");
 				copyFile(project, "TrainController.rebeca");
 				copyFile(project, "TrainController.property");
 			} else if (type.equals("TimedRebeca")) {
