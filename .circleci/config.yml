@@ -19,8 +19,8 @@ jobs: # a collection of steps
 
       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.rmc/master/target/rmc-2.8.3.jar
       - run: mvn -N install:install-file -Dfile=rmc-2.8.3.jar -DgroupId=org.rebecalang -DartifactId=rmc -Dversion=2.8.3 -Dpackaging=jar
-      - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.modeltransformer/master/target/modeltransformer-1.5.0.jar
-      - run: mvn -N install:install-file -Dfile=modeltransformer-1.5.0.jar -DgroupId=org.rebecalang -DartifactId=modeltransformer -Dversion=1.5.0 -Dpackaging=jar
+      - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.modeltransformer/master/target/modeltransformer-1.6.0.jar
+      - run: mvn -N install:install-file -Dfile=modeltransformer-1.6.0.jar -DgroupId=org.rebecalang -DartifactId=modeltransformer -Dversion=1.6.0 -Dpackaging=jar
       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.statespacetransformer/master/target/statespacetransformer-1.0.0.jar
       - run: mvn -N install:install-file -Dfile=statespacetransformer-1.0.0.jar -DgroupId=org.rebecalang -DartifactId=statespacetransformer -Dversion=1.0.0 -Dpackaging=jar
 

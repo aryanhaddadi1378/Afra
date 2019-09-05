@@ -31,6 +31,6 @@ Import-Package: javax.inject;version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
  libs/statespacetransformer-1.0.0.jar,
- libs/modeltransformer-1.5.0.jar,
+ libs/modeltransformer-1.6.0.jar,
  libs/rmc-2.8.3.jar
 
