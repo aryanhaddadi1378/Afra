@@ -213,7 +213,8 @@ public class ModelCheckingHandler extends AbstractAnalysisHandler {
 						if (modelCheckingReport != null)
 							if (!modelCheckingReport.getCheckedProperty().getResult().equals("satisfied") &&
 									!modelCheckingReport.getCheckedProperty().getResult().equals("search stack overflow") &&
-									!modelCheckingReport.getCheckedProperty().getResult().endsWith("(heap overflow)")) {
+									!modelCheckingReport.getCheckedProperty().getResult().endsWith("(heap overflow)") &&
+									modelCheckingReport.getSystemInfo().getReachedStates().intValue() != 0) {
 								ViewUtils.counterExampleVisible(true);
 								CounterExampleGraphView ceView = 
 										(CounterExampleGraphView) ViewUtils.getViewPart(CounterExampleGraphView.class.getName());
