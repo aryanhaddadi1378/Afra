@@ -10,7 +10,7 @@ jobs: # a collection of steps
 
     steps: # a collection of executable commands
 
-      - run: git clone https://github.com/rebeca-lang/org.rebecalang.compiler org.rebecalang.compiler
+      - run: git clone https://github.com/rebeca-lang/org.rebecalang.compiler
       - run: cd org.rebecalang.compiler
       - run: ls
       - run: mvn clean install
