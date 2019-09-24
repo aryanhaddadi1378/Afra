@@ -10,18 +10,18 @@ jobs: # a collection of steps
 
     steps: # a collection of executable commands
 
-#       - run: git clone https://github.com/rebeca-lang/org.rebecalang.compiler
-#       - run: mvn -f org.rebecalang.compiler/pom.xml clean install
-#       - run: rm -f -r org.rebecalang.compiler
-#       - run: git clone https://github.com/rebeca-lang/org.rebecalang.modeltransformer
-#       - run: mvn -f org.rebecalang.modeltransformer/pom.xml clean install
-#       - run: rm -f -r org.rebecalang.modeltransformer
-#       - run: git clone https://github.com/rebeca-lang/org.rebecalang.rmc
-#       - run: mvn -f org.rebecalang.rmc/pom.xml clean install
-#       - run: rm -f -r org.rebecalang.rmc
-#       - run: git clone https://github.com/rebeca-lang/org.rebecalang.statespacetransformer
-#       - run: mvn -f org.rebecalang.statespacetransformer/pom.xml clean install
-#       - run: rm -f -r org.rebecalang.statespacetransformer
+      - run: git clone https://github.com/rebeca-lang/org.rebecalang.compiler
+      - run: mvn -f org.rebecalang.compiler/pom.xml clean install
+      - run: rm -f -r org.rebecalang.compiler
+      - run: git clone https://github.com/rebeca-lang/org.rebecalang.modeltransformer
+      - run: mvn -f org.rebecalang.modeltransformer/pom.xml clean install
+      - run: rm -f -r org.rebecalang.modeltransformer
+      - run: git clone https://github.com/rebeca-lang/org.rebecalang.rmc
+      - run: mvn -f org.rebecalang.rmc/pom.xml clean install
+      - run: rm -f -r org.rebecalang.rmc
+      - run: git clone https://github.com/rebeca-lang/org.rebecalang.statespacetransformer
+      - run: mvn -f org.rebecalang.statespacetransformer/pom.xml clean install
+      - run: rm -f -r org.rebecalang.statespacetransformer
       - run: git clone https://github.com/rebeca-lang/org.rebecalang.afra.dependencies
       - run: mvn -f org.rebecalang.afra.dependencies/pom.xml clean install
       - run: rm -f -r org.rebecalang.afra.dependencies
