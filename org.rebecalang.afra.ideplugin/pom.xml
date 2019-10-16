@@ -31,25 +31,12 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.rebecalang</groupId>
-									<artifactId>rmc</artifactId>
-									<version>2.8.3</version>
-									<outputDirectory>libs</outputDirectory>
-								</artifactItem>
-								<artifactItem>
-									<groupId>org.rebecalang</groupId>
-									<artifactId>statespacetransformer</artifactId>
-									<version>1.0.0</version>
-									<outputDirectory>libs</outputDirectory>
-								</artifactItem>
-								<artifactItem>
-									<groupId>org.rebecalang</groupId>
-									<artifactId>modeltransformer</artifactId>
-									<version>1.6.0</version>
+									<groupId>org.rebecalang.afra</groupId>
+									<artifactId>dependencies</artifactId>
+									<version>LATEST</version>
 									<outputDirectory>libs</outputDirectory>
 								</artifactItem>
 							</artifactItems>
-							<!-- other configurations here -->
 						</configuration>
 					</execution>
 				</executions>

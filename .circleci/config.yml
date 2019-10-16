@@ -10,6 +10,13 @@ jobs: # a collection of steps
 
     steps: # a collection of executable commands
 
+      - checkout # check out source code to working directory
+      - setup_remote_docker:   # (2)
+          docker_layer_caching: true # (3)
+
+      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
+          key: afra
+
       - run: git clone https://github.com/rebeca-lang/org.rebecalang.compiler
       - run: mvn -f org.rebecalang.compiler/pom.xml clean install
       - run: rm -f -r org.rebecalang.compiler
@@ -25,20 +32,6 @@ jobs: # a collection of steps
       - run: git clone https://github.com/rebeca-lang/org.rebecalang.afra.dependencies
       - run: mvn -f org.rebecalang.afra.dependencies/pom.xml clean install
       - run: rm -f -r org.rebecalang.afra.dependencies
-      
-      - checkout # check out source code to working directory
-      - setup_remote_docker:   # (2)
-          docker_layer_caching: true # (3)
-
-      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
-          key: afra
-
-#       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.rmc/master/target/rmc-2.8.3.jar
-#       - run: mvn -N install:install-file -Dfile=rmc-2.8.3.jar -DgroupId=org.rebecalang -DartifactId=rmc -Dversion=2.8.3 -Dpackaging=jar
-#       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.modeltransformer/master/target/modeltransformer-1.6.0.jar
-#       - run: mvn -N install:install-file -Dfile=modeltransformer-1.6.0.jar -DgroupId=org.rebecalang -DartifactId=modeltransformer -Dversion=1.6.0 -Dpackaging=jar
-#       - run: wget https://raw.githubusercontent.com/rebeca-lang/org.rebecalang.statespacetransformer/master/target/statespacetransformer-1.0.0.jar
-#       - run: mvn -N install:install-file -Dfile=statespacetransformer-1.0.0.jar -DgroupId=org.rebecalang -DartifactId=statespacetransformer -Dversion=1.0.0 -Dpackaging=jar
 
       - run: mvn install # run the actual tests
 
