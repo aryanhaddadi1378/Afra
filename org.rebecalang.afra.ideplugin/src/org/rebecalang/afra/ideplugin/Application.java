@@ -5,6 +5,15 @@ import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.osgi.service.datalocation.Location;
+import java.net.URL;
+import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.core.runtime.IPlatformRunnable;
+import java.io.File;
+import java.net.MalformedURLException;
 
 /**
  * This class controls all aspects of the application's execution
@@ -16,6 +25,13 @@ public class Application implements IApplication {
 	 */
 	public Object start(IApplicationContext context) throws Exception {
 		Display display = PlatformUI.createDisplay();
+		Location instanceLoc = Platform.getInstanceLocation();
+		instanceLoc.release();
+		URL url = promptForInstanceLoc(display);
+		if (url == null) {
+			return IPlatformRunnable.EXIT_OK;
+		}
+		instanceLoc.setURL(url, true);
 		try {
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART)
@@ -26,6 +42,20 @@ public class Application implements IApplication {
 			display.dispose();
 		}
 		
+	}
+
+	private URL promptForInstanceLoc(Display display) {
+		Shell shell = new Shell(display);
+		DirectoryDialog dialog = new DirectoryDialog(shell);
+		dialog.setText("Select Workspace Directory");
+		dialog.setMessage("Select the workspace directory to use.");
+		String dir = dialog.open();
+		shell.dispose();
+		try {
+			return dir == null ? null : new File(dir).toURL();
+		} catch (MalformedURLException e) {
+			return null;
+		}
 	}
 
 	/* (non-Javadoc)
@@ -44,3 +74,4 @@ public class Application implements IApplication {
 		});
 	}
 }
+
