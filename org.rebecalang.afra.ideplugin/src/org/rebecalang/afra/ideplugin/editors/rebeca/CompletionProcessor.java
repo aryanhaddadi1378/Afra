@@ -1,239 +1,297 @@
 package org.rebecalang.afra.ideplugin.editors.rebeca;
 
 
-// import java.io.BufferedWriter;
-// import java.io.File;
-// import java.io.FileWriter;
-// import java.util.ArrayList;
-// import java.util.HashSet;
-// import java.util.Set;
-// import java.util.Vector;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
 
 
 
-// import org.eclipse.jface.text.BadLocationException;
-// import org.eclipse.jface.text.IDocument;
-// import org.eclipse.jface.text.ITextViewer;
-// import org.eclipse.jface.text.contentassist.CompletionProposal;
-// import org.eclipse.jface.text.contentassist.ContextInformation;
-// import org.eclipse.jface.text.contentassist.ICompletionProposal;
-// import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
-// import org.eclipse.jface.text.contentassist.IContextInformation;
-// import org.eclipse.jface.text.contentassist.IContextInformationValidator;
-// import org.eclipse.swt.graphics.Image;
-// import org.rebecalang.compiler.utils.CompilerFeature;
-// import org.rebecalang.compiler.utils.ExceptionContainer;
-// import org.rebecalang.compiler.modelcompiler.RebecaCompiler;
-// import org.rebecalang.compiler.modelcompiler.corerebeca.objectmodel.RebecaModel;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.ITextViewer;
+import org.eclipse.jface.text.contentassist.CompletionProposal;
+import org.eclipse.jface.text.contentassist.ContextInformation;
+import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
+import org.eclipse.jface.text.contentassist.IContextInformation;
+import org.eclipse.jface.text.contentassist.IContextInformationValidator;
+import org.eclipse.swt.graphics.Image;
+import org.rebecalang.compiler.utils.CompilerFeature;
+import org.rebecalang.compiler.utils.ExceptionContainer;
+import org.rebecalang.compiler.modelcompiler.RebecaCompiler;
+import org.rebecalang.compiler.modelcompiler.corerebeca.objectmodel.RebecaModel;
 
 
-// public class CompletionProcessor implements IContentAssistProcessor {
+public class CompletionProcessor implements IContentAssistProcessor {
    
-// 	private int numberClass;
-// 	private int numberMsg;
-// 	private boolean lastFlag = false;
-// 	private static String[] keywords = {"reactiveclass","knownrebecs","statevars","msgsrv"};
-// 	private static String[] types={"boolean","byte","int","short"};
+	private int numberClass;
+	private int numberMsg;
+	private RebecaEditor editor;
+	private boolean lastFlag = false;
+	private static String[] keywords = {"reactiveclass", "knownrebecs", "statevars", "msgsrv"};
+	private static String[] types = {"boolean", "byte", "int", "short"};
 	
-	
-// 	@Override
-// 	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer, int offset) {
-	   
-// 	   try {
-		   
-//         IDocument document = viewer.getDocument();
-//         RebecaCompiler FileCompiler = new RebecaCompiler();
-//         File temp = File.createTempFile("a.rebeca", "a.rebeca");
-//         FileWriter fstream = new FileWriter(temp);
-// 		BufferedWriter out = new BufferedWriter(fstream);
-// 		out.write(document.get());
-// 		out.close();Set<CompilerFeature> options = new HashSet<CompilerFeature>();
-//  		options.add(CompilerFeature.CORE_2_0);
-//  		RebecaModel FileModel = FileCompiler.getRebecaFilesPartialModel(temp,options );
-//  		ArrayList<ICompletionProposal> result = new ArrayList<ICompletionProposal>(); // output array that proposals are in it.
+	public CompletionProcessor(RebecaEditor editor) {
+		this.editor = editor;
+	}
 
-//  		// Check last letter for '{', '(' and '['
-//  		if( document.getChar(offset-1) == '{' ) 			
-//  			result.add(new CompletionProposal( "}", offset, 0, 0));
-// 		else if( document.getChar(offset-1) == '(' )
-// 			result.add(new CompletionProposal( ")", offset, 0, 0));
-// 		else if( document.getChar(offset-1) == '[' )
-// 		    result.add(new CompletionProposal( "]", offset, 0, 0));
-// 		else
-// 		{
-// 			//Check for if curser is new line proposal is '}'
-// 			if( document.getChar(offset-1) == 10 )
-// 				result.add(new CompletionProposal( "}", offset, 0, 0));
-// 			else
-// 			{
-// 				ArrayList<ICompletionProposal> result2 = new ArrayList<ICompletionProposal>();
-// 				result2 = findAllProposals(document,offset,FileModel);
-// 				result.addAll(result2);
-// 			}
-// 		}
-//         return result.toArray(new ICompletionProposal[result.size()]);
-//       }
-// 	   catch(ExceptionContainer ec) {
-// 			for(Exception e : ec.getExceptions())
-// 				System.out.println(e.getMessage());
-				
-// 		}
-// 	   catch (Exception e) {
-//          return null;
-//       }
-// 	   return null;
-// 	}
+	private int getWordStartIndex(IDocument document, int offset) throws BadLocationException{
+		int index = offset - 1;
+		while (index >= 0 && document.getChar(index) != ' ' && document.getChar(index) != '\t' && document.getChar(index) != '\n') {
+			index--;
+		}
+		return index+1;
+	}
+
+	private int getWordEndIndex(IDocument document, int offset) throws BadLocationException {
+		int index = offset - 1;
+		while (index < document.getLength() && document.getChar(index) != ' ' && document.getChar(index) != '\t' && document.getChar(index) != '\n') index++;
+		return index;
+	}
+	
+	private String getCurrentWord(IDocument document, int offset) throws BadLocationException {
+		 int startIndex = getWordStartIndex(document, offset);
+		 int endIndex = getWordEndIndex(document, offset);
+		return document.get(startIndex, endIndex - startIndex);
+	}
+
+	ArrayList<String> getAllStaticProposals(String currentWord) {
+		ArrayList<String> proposals = new ArrayList();
+		for (String s : keywords) {
+			if (s.startsWith(currentWord)) {
+				proposals.add(s + " ");
+			}
+		}
+		for (String s : types) {
+			if (s.startsWith(currentWord)) {
+				proposals.add(s + " ");
+			}
+		}
+		return proposals;
+	}
+	
+	@Override
+	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer, int offset) {
+	   
+		try {
+			System.out.println(2222);
+			IDocument document = viewer.getDocument();
+			// RebecaCompiler FileCompiler = new RebecaCompiler();
+			// File temp = File.createTempFile("a.rebeca", "a.rebeca");
+			// FileWriter fstream = new FileWriter(temp);
+			// BufferedWriter out = new BufferedWriter(fstream);
+			// out.write(document.get());
+			// out.close();
+			// Set<CompilerFeature> options = new HashSet<CompilerFeature>();
+			// options.add(CompilerFeature.CORE_2_0);
+			// RebecaModel FileModel = FileCompiler.getRebecaFilesPartialModel(temp, options);
+			ArrayList<ICompletionProposal> result = new ArrayList<ICompletionProposal>(); // output array that proposals are in it.
+			// Check last letter for '{', '(' and '['
+			if( document.getChar(offset-1) == '{' ) {	
+//				System.out.print("num=");
+//				System.out.println(numOfTabs);
+				// int numOfTabs = document.getLineOffset(document.getLineOfOffset(offset));
+				// String replacementText = "\n";
+				// for(int i = 0; i < numOfTabs; i++) {
+				// 	replacementText += "\t";
+				// }
+				// replacementText+= "}";
+				// result.add(new CompletionProposal( replacementText, offset, 0, 0));
+				document.replace(offset-1, 1, "{}");
+				this.editor.selectAndReveal(offset, 0);
+			}
+			else if( document.getChar(offset-1) == '(' ) {
+//				document.replace(offset-1, 1, "()");
+				 result.add(new CompletionProposal( ")", offset, 0, 0));
+			}
+			else if( document.getChar(offset-1) == '[' ) {
+				document.replace(offset-1, 1, "[]");
+				// result.add(new CompletionProposal( "]", offset, 0, 0));
+			}
+			else {
+				String currentWord = getCurrentWord(document, offset);
+				System.out.println(currentWord);
+				ArrayList<String> proposals = getAllStaticProposals(currentWord.trim());
+				System.out.println(proposals.size());
+				for (String s : proposals) {
+					result.add(new CompletionProposal( s, offset-currentWord.length(), currentWord.length(), s.length()));
+				}
+			}
+			// else
+			// {
+			// 	//Check for if curser is new line proposal is '}'
+			// 	if( document.getChar(offset-1) == 10 )
+			// 		result.add(new CompletionProposal( "}", offset, 0, 0));
+			// 	else
+			// 	{
+			// 		ArrayList<ICompletionProposal> result2 = new ArrayList<ICompletionProposal>();
+			// 		result2 = findAllProposals(document,offset,FileModel);
+			// 		result.addAll(result2);
+			// 	}
+			// }
+			return result.toArray(new ICompletionProposal[result.size()]);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}	
+	}
 	
 	
-// 	// For get state variables of a class	  
+	// For get state variables of a class	  
 	 
-// 	private Vector<String> getStatevarClassWords(String msg, String rclass,RebecaModel FileModel)
-// 	{
+	// private Vector<String> getStatevarClassWords(String msg, String rclass,RebecaModel FileModel)
+	// {
 		
-// 		Vector <String> values = new Vector<String>();
-// 		for( int i = 0; i < FileModel.getRebecaCode().getReactiveClassDeclaration().size(); i++)
-// 		{
-// 			if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getName().matches(rclass)==true)
-// 			{
-// 				numberClass = i;
-// 				for( int j = 0; j < FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getClassBodyDeclaration().getStateVarsDeclaration().getLocalVariableDeclaration().size() ; j++)
-// 				{
-// 					String statevar = FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getClassBodyDeclaration().getStateVarsDeclaration().getLocalVariableDeclaration().get(j).getVariableDeclarator().get(0).getName();
-// 					statevar = statevar.concat(" : ");
-// 					statevar = statevar.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getClassBodyDeclaration().getStateVarsDeclaration().getLocalVariableDeclaration().get(j).getType().getPrimitiveType().getPrimitiveType());
-// 					values.add(statevar);
-// 				}
-// 				break;
-// 			}
-// 		}
-// 		return values;	
-// 	}
+	// 	Vector <String> values = new Vector<String>();
+	// 	for( int i = 0; i < FileModel.getRebecaCode().getReactiveClassDeclaration().size(); i++)
+	// 	{
+	// 		if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getName().matches(rclass)==true)
+	// 		{
+	// 			numberClass = i;
+	// 			for( int j = 0; j < FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getClassBodyDeclaration().getStateVarsDeclaration().getLocalVariableDeclaration().size() ; j++)
+	// 			{
+	// 				String statevar = FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getClassBodyDeclaration().getStateVarsDeclaration().getLocalVariableDeclaration().get(j).getVariableDeclarator().get(0).getName();
+	// 				statevar = statevar.concat(" : ");
+	// 				statevar = statevar.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getClassBodyDeclaration().getStateVarsDeclaration().getLocalVariableDeclaration().get(j).getType().getPrimitiveType().getPrimitiveType());
+	// 				values.add(statevar);
+	// 			}
+	// 			break;
+	// 		}
+	// 	}
+	// 	return values;	
+	// }
 	
 	
 	
 	
-// 	// For get input arguments of a message word.
+	// // For get input arguments of a message word.
 	 
 	
-// 	private Vector<String> getInputargsMsgWords(String msg, String rclass,RebecaModel FileModel )
-// 	{
+	// private Vector<String> getInputargsMsgWords(String msg, String rclass,RebecaModel FileModel )
+	// {
 		
-// 		Vector <String> values = new Vector<String>();
-// 		for( int j = 0; j < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().size() ; j++)
-// 		{
+	// 	Vector <String> values = new Vector<String>();
+	// 	for( int j = 0; j < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().size() ; j++)
+	// 	{
 			
-// 			if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(j).getName().matches(msg)==true)
-// 			{
+	// 		if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(j).getName().matches(msg)==true)
+	// 		{
 				
-// 				numberMsg = j;
-// 				if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration() != null)
-// 				{
-// 					for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration().getNormalParameterDeclaration().size() ; k++)
-// 					{
-// 						String arg = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration().getNormalParameterDeclaration().get(k).getName();
-// 						arg = arg.concat(" : ");
-// 						arg = arg.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration().getNormalParameterDeclaration().get(k).getType().getPrimitiveType().getPrimitiveType());
-// 						values.add(arg);
-// 					}
-// 					break;
-// 				}
-// 			}
-// 		}
-// 		return values;
-// 	}
+	// 			numberMsg = j;
+	// 			if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration() != null)
+	// 			{
+	// 				for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration().getNormalParameterDeclaration().size() ; k++)
+	// 				{
+	// 					String arg = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration().getNormalParameterDeclaration().get(k).getName();
+	// 					arg = arg.concat(" : ");
+	// 					arg = arg.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getFormalParameterDeclaration().getNormalParameterDeclaration().get(k).getType().getPrimitiveType().getPrimitiveType());
+	// 					values.add(arg);
+	// 				}
+	// 				break;
+	// 			}
+	// 		}
+	// 	}
+	// 	return values;
+	// }
 	
 	
 	
-// 	// For get local variable 
+	// // For get local variable 
 	 
-// 	private Vector<String> getLocalvarMsgWords(String msg, String rclass,RebecaModel FileModel )
-// 	{
+	// private Vector<String> getLocalvarMsgWords(String msg, String rclass,RebecaModel FileModel )
+	// {
 	
-// 		Vector <String> values = new Vector<String>();
-// 		try{
-// 		for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().size() ; k++)
-// 		{
-// 			if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k) != null)
-// 			{
+	// 	Vector <String> values = new Vector<String>();
+	// 	try{
+	// 	for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().size() ; k++)
+	// 	{
+	// 		if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k) != null)
+	// 		{
 			
-// 				if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k).getLocalVariableDeclaration()!=null)
-// 				{
-// 					String localvar = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k).getLocalVariableDeclaration().getVariableDeclarator().get(0).getName();
-// 					localvar = localvar.concat(" : ");
-// 					localvar = localvar.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k).getLocalVariableDeclaration().getType().getPrimitiveType().getPrimitiveType());
-// 					values.add(localvar);
-// 				}
-// 			}
-// 		}}
-// 		catch(Exception e)
-// 		{
-// 			return values;
-// 		}
-// 		return values;
+	// 			if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k).getLocalVariableDeclaration()!=null)
+	// 			{
+	// 				String localvar = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k).getLocalVariableDeclaration().getVariableDeclarator().get(0).getName();
+	// 				localvar = localvar.concat(" : ");
+	// 				localvar = localvar.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getMethodDeclaration().get(numberMsg).getBlock().getBlockStatement().get(k).getLocalVariableDeclaration().getType().getPrimitiveType().getPrimitiveType());
+	// 				values.add(localvar);
+	// 			}
+	// 		}
+	// 	}}
+	// 	catch(Exception e)
+	// 	{
+	// 		return values;
+	// 	}
+	// 	return values;
 		
-// 	}
+	// }
 	
-// 	private Vector<String> getKnownRebecs( String rclass,RebecaModel FileModel )
-// 	{
+	// private Vector<String> getKnownRebecs( String rclass,RebecaModel FileModel )
+	// {
 		
-// 		Vector <String> values = new Vector<String>();
-// 		if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration() != null)
-// 		{
+	// 	Vector <String> values = new Vector<String>();
+	// 	if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration() != null)
+	// 	{
 		
-// 			for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().size() ; k++)
-// 			{	
-// 				String rebecs = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getName();
-// 				rebecs = rebecs.concat(" : ");
-// 				rebecs = rebecs.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getClassOrInterfaceType().getName());
+	// 		for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().size() ; k++)
+	// 		{	
+	// 			String rebecs = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getName();
+	// 			rebecs = rebecs.concat(" : ");
+	// 			rebecs = rebecs.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getClassOrInterfaceType().getName());
 				
-// 				values.add(rebecs);
-// 			}
-// 		}
+	// 			values.add(rebecs);
+	// 		}
+	// 	}
 			
-// 		return values;
+	// 	return values;
 		
-// 	}
+	// }
 	
-// 	private Vector<String> getKnownRebecs2( String rclass,RebecaModel FileModel )
-// 	{
-// 		Vector <String> values = new Vector<String>();
+	// private Vector<String> getKnownRebecs2( String rclass,RebecaModel FileModel )
+	// {
+	// 	Vector <String> values = new Vector<String>();
 	
-// 	int numberClass2 = -1;
-// 	for( int i = 0; i < FileModel.getRebecaCode().getReactiveClassDeclaration().size(); i++)
-// 	{
-// 		if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getName().matches(rclass)==true)
-// 		{
-// 			numberClass2 = i;
+	// int numberClass2 = -1;
+	// for( int i = 0; i < FileModel.getRebecaCode().getReactiveClassDeclaration().size(); i++)
+	// {
+	// 	if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(i).getName().matches(rclass)==true)
+	// 	{
+	// 		numberClass2 = i;
 			
-// 		}
-// 	}
-// 	if( numberClass2 != -1){
+	// 	}
+	// }
+	// if( numberClass2 != -1){
 		
 		
-// 		if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration() != null)
-// 		{
-// 			for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().size() ; k++)
-// 			{	
-// 				String rebecs = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getName();
-// 				rebecs = rebecs.concat(" : ");
-// 				rebecs = rebecs.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getClassOrInterfaceType().getName());
-// 				values.add(rebecs);
-// 			}
-// 		}
-// 	}	
-// 		return values;
+	// 	if( FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration() != null)
+	// 	{
+	// 		for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().size() ; k++)
+	// 		{	
+	// 			String rebecs = FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getName();
+	// 			rebecs = rebecs.concat(" : ");
+	// 			rebecs = rebecs.concat(FileModel.getRebecaCode().getReactiveClassDeclaration().get(numberClass2).getClassBodyDeclaration().getKnownRebecsDeclaration().getKnownRebecDeclaration().get(k).getClassOrInterfaceType().getName());
+	// 			values.add(rebecs);
+	// 		}
+	// 	}
+	// }	
+	// 	return values;
 		
-// 	}
-// 	private Vector<String> getClassKnown( RebecaModel FileModel )
-// 	{
-// 		Vector <String> values = new Vector<String>();
+	// }
+	// private Vector<String> getClassKnown( RebecaModel FileModel )
+	// {
+	// 	Vector <String> values = new Vector<String>();
 		
-// 			for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().size();k++)
-// 				values.add(FileModel.getRebecaCode().getReactiveClassDeclaration().get(k).getName());
+	// 		for( int k = 0; k < FileModel.getRebecaCode().getReactiveClassDeclaration().size();k++)
+	// 			values.add(FileModel.getRebecaCode().getReactiveClassDeclaration().get(k).getName());
 			
-// 		return values;
+	// 	return values;
 		
-// 	}
+	// }
 	
 // 	private ArrayList<ICompletionProposal> findAllProposals( IDocument document, int offset, RebecaModel FileModel ) throws Exception
 // 	{
@@ -617,36 +675,36 @@ package org.rebecalang.afra.ideplugin.editors.rebeca;
 	
 
 
-// 	@Override
-// 	public IContextInformation[] computeContextInformation(ITextViewer viewer,
-// 			int offset) {
-// 		// TODO Auto-generated method stub
-// 		return null;
-// 	}
-// 	@Override
-// 	public char[] getCompletionProposalAutoActivationCharacters() {
-// 		return new char[] { '.', '(','{','['};
-// 		}
+	@Override
+	public IContextInformation[] computeContextInformation(ITextViewer viewer,
+			int offset) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public char[] getCompletionProposalAutoActivationCharacters() {
+		return "abcdefghijklmnopqrstuvwxyz.({[".toCharArray();
+	}
 	
 	
 
-// 	@Override
-// 	public char[] getContextInformationAutoActivationCharacters() {
-// 		// TODO Auto-generated method stub
-// 		return null;
-// 	}
+	@Override
+	public char[] getContextInformationAutoActivationCharacters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-// 	@Override
-// 	public IContextInformationValidator getContextInformationValidator() {
-// 		// TODO Auto-generated method stub
-// 		return null;
-// 	}
+	@Override
+	public IContextInformationValidator getContextInformationValidator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
-// 	@Override
-// 	public String getErrorMessage() {
-// 		// TODO Auto-generated method stub
-// 		return null;
-// 	}
+	@Override
+	public String getErrorMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-// }
+}
